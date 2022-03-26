@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moderntech:item/compound",
+    "layer1": "minecraft:item/glass_bottle"
+  }
+}
