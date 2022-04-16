@@ -1,14 +1,21 @@
 package com.mrzhang21626.moderntech.items.chemical;
 
 import com.mrzhang21626.moderntech.Tabs;
+import com.mrzhang21626.moderntech.items.action.entity.IItemEntityUpdateAction;
+import com.mrzhang21626.moderntech.items.action.entity.ItemEntityUpdateAction;
+import com.mrzhang21626.moderntech.items.action.use.IItemUseAction;
+import com.mrzhang21626.moderntech.items.action.use.ItemUseActions;
 import com.mrzhang21626.moderntech.utils.Utils;
 import com.mrzhang21626.moderntech.items.BaseItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,8 +26,10 @@ public class ChemicalItem extends BaseItem implements IElement {
     private final int atomicNumber;
     private final String abbreviation;
     private final String internalName;
-    public int color;
+    private int color;
     private ItemType type;
+    private IItemEntityUpdateAction entityUpdateAction;
+    private IItemUseAction useAction;
 
     public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color,ItemType type){
         super(name,new Item.Properties().tab(Tabs.CHEMISTRY_TAB));
@@ -29,6 +38,41 @@ public class ChemicalItem extends BaseItem implements IElement {
         this.abbreviation = abbreviation;
         this.color = color.getRGB();
         this.type = type;
+        this.useAction = ItemUseActions.DEFAULT;
+        this.entityUpdateAction = ItemEntityUpdateAction.DEFAULT;
+        ChemicalItems.items.add(this);
+    }
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color,ItemType type,IItemEntityUpdateAction action){
+        super(name,new Item.Properties().tab(Tabs.CHEMISTRY_TAB));
+        this.internalName = name;
+        this.atomicNumber = atomicNumber;
+        this.abbreviation = abbreviation;
+        this.color = color.getRGB();
+        this.type = type;
+        this.useAction = ItemUseActions.DEFAULT;
+        this.entityUpdateAction = action;
+        ChemicalItems.items.add(this);
+    }
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color,ItemType type,IItemUseAction action){
+        super(name,new Item.Properties().tab(Tabs.CHEMISTRY_TAB));
+        this.internalName = name;
+        this.atomicNumber = atomicNumber;
+        this.abbreviation = abbreviation;
+        this.color = color.getRGB();
+        this.type = type;
+        this.useAction = action;
+        this.entityUpdateAction = ItemEntityUpdateAction.DEFAULT;
+        ChemicalItems.items.add(this);
+    }
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color,ItemType type,IItemUseAction useAction,IItemEntityUpdateAction entityUpdateAction){
+        super(name,new Item.Properties().tab(Tabs.CHEMISTRY_TAB));
+        this.internalName = name;
+        this.atomicNumber = atomicNumber;
+        this.abbreviation = abbreviation;
+        this.color = color.getRGB();
+        this.type = type;
+        this.useAction = useAction;
+        this.entityUpdateAction = entityUpdateAction;
         ChemicalItems.items.add(this);
     }
 
@@ -61,4 +105,13 @@ public class ChemicalItem extends BaseItem implements IElement {
         return this.type;
     }
 
+    @Override
+    public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
+        return this.entityUpdateAction.onEntityUpdate(stack,entity);
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext p_41427_) {
+        return this.useAction.onUse(p_41427_);
+    }
 }

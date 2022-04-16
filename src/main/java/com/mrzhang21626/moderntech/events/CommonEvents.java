@@ -6,6 +6,7 @@ import com.mrzhang21626.moderntech.items.BaseItem;
 import com.mrzhang21626.moderntech.items.chemical.ChemicalItems;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.Logger;
@@ -19,6 +20,11 @@ public class CommonEvents {
         for(BaseItem item : ChemicalItems.items) {
             event.getRegistry().register(item);
         }
+    }
+
+    @SubscribeEvent
+    public static void onBiomeLoading(BiomeLoadingEvent event){
+
     }
 
 }
