@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.utils;
+package indi.mrzhang21626.moderntech.utils;
 
 import net.minecraft.resources.ResourceLocation;
 

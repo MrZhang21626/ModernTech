@@ -1,6 +1,6 @@
-package com.mrzhang21626.moderntech;
+package indi.mrzhang21626.moderntech;
 
-import com.mrzhang21626.moderntech.items.chemical.ChemicalItems;
+import indi.mrzhang21626.moderntech.items.chemical.ChemicalItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 

@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.utils.tooltip;
+package indi.mrzhang21626.moderntech.utils.tooltip;
 
 public class TooltipValue implements ITooltipValue{
     private String abbr;

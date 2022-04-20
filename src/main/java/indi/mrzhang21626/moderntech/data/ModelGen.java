@@ -1,10 +1,10 @@
-package com.mrzhang21626.moderntech.data;
+package indi.mrzhang21626.moderntech.data;
 
-import com.mrzhang21626.moderntech.utils.Utils;
-import com.mrzhang21626.moderntech.items.BaseItem;
-import com.mrzhang21626.moderntech.items.chemical.ChemicalItem;
-import com.mrzhang21626.moderntech.items.chemical.ChemicalItems;
-import com.mrzhang21626.moderntech.items.chemical.ItemType;
+import indi.mrzhang21626.moderntech.utils.Utils;
+import indi.mrzhang21626.moderntech.items.BaseItem;
+import indi.mrzhang21626.moderntech.items.chemical.ChemicalItem;
+import indi.mrzhang21626.moderntech.items.chemical.ChemicalItems;
+import indi.mrzhang21626.moderntech.items.chemical.ItemType;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;

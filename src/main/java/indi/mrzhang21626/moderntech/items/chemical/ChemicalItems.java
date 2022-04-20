@@ -1,6 +1,6 @@
-package com.mrzhang21626.moderntech.items.chemical;
+package indi.mrzhang21626.moderntech.items.chemical;
 
-import com.mrzhang21626.moderntech.items.BaseItem;
+import indi.mrzhang21626.moderntech.items.BaseItem;
 
 import java.awt.*;
 import java.util.ArrayList;

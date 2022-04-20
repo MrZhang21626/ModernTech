@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.items.chemical;
+package indi.mrzhang21626.moderntech.items.chemical;
 
 public interface IElement{
     String getAbbreviation();

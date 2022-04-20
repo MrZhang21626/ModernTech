@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.data;
+package indi.mrzhang21626.moderntech.data;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
