@@ -25,8 +25,8 @@ public class ChemicalItem extends BaseItem implements IElement {
     public int color;
     private ItemType type;
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction, IEntityItemUpdateAction entityItemUpdateAction) {
-        super(name, new Properties().tab(Tabs.CHEMISTRY_TAB));
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction, IEntityItemUpdateAction entityItemUpdateAction,int max_stack) {
+        super(name, new Properties().tab(Tabs.CHEMISTRY_TAB).stacksTo(max_stack));
         super.setEntityItemUpdateAction(entityItemUpdateAction);
         super.setItemUseOnAction(itemUseOnAction);
         this.internalName = name;
@@ -37,16 +37,16 @@ public class ChemicalItem extends BaseItem implements IElement {
         ChemicalItems.items.add(this);
     }
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction) {
-        this(name, atomicNumber, abbreviation, color, type, itemUseOnAction, EntityItemUpdateActions.DEFAULT);
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction,int max_stack) {
+        this(name, atomicNumber, abbreviation, color, type, itemUseOnAction, EntityItemUpdateActions.DEFAULT,max_stack);
     }
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IEntityItemUpdateAction entityItemUpdateAction) {
-        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, entityItemUpdateAction);
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IEntityItemUpdateAction entityItemUpdateAction,int max_stack) {
+        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, entityItemUpdateAction,max_stack);
     }
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type) {
-        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, EntityItemUpdateActions.DEFAULT);
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type,int max_stack) {
+        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, EntityItemUpdateActions.DEFAULT,max_stack);
     }
 
     @Override
