@@ -25,7 +25,7 @@ public class ChemicalItem extends BaseItem implements IElement {
     public int color;
     private ItemType type;
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction, IEntityItemUpdateAction entityItemUpdateAction,int max_stack) {
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction, IEntityItemUpdateAction entityItemUpdateAction, int max_stack) {
         super(name, new Properties().tab(Tabs.CHEMISTRY_TAB).stacksTo(max_stack));
         super.setEntityItemUpdateAction(entityItemUpdateAction);
         super.setItemUseOnAction(itemUseOnAction);
@@ -35,24 +35,29 @@ public class ChemicalItem extends BaseItem implements IElement {
         this.color = color.getRGB();
         this.type = type;
         ChemicalItems.items.add(this);
+        if (type.equals(ItemType.INGOT)) {
+            ChemicalItem item = new ChemicalItem(name + "_nugget", atomicNumber, abbreviation, color, ItemType.NUGGET,
+                    itemUseOnAction, entityItemUpdateAction, 16);
+            ChemicalItems.items.add(item);
+        }
     }
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction,int max_stack) {
-        this(name, atomicNumber, abbreviation, color, type, itemUseOnAction, EntityItemUpdateActions.DEFAULT,max_stack);
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IItemUseOnAction itemUseOnAction, int max_stack) {
+        this(name, atomicNumber, abbreviation, color, type, itemUseOnAction, EntityItemUpdateActions.DEFAULT, max_stack);
     }
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IEntityItemUpdateAction entityItemUpdateAction,int max_stack) {
-        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, entityItemUpdateAction,max_stack);
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, IEntityItemUpdateAction entityItemUpdateAction, int max_stack) {
+        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, entityItemUpdateAction, max_stack);
     }
 
-    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type,int max_stack) {
-        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, EntityItemUpdateActions.DEFAULT,max_stack);
+    public ChemicalItem(String name, int atomicNumber, String abbreviation, Color color, ItemType type, int max_stack) {
+        this(name, atomicNumber, abbreviation, color, type, ItemUseOnActions.DEFAULT, EntityItemUpdateActions.DEFAULT, max_stack);
     }
 
     @Override
-    public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
-        p_41423_.add(new TextComponent(Utils.getAbbr(getAbbreviation())).withStyle(ChatFormatting.GRAY));
-        p_41423_.add(new TextComponent("(" + atomicNumber + ")").withStyle(ChatFormatting.GRAY));
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        pTooltipComponents.add(new TextComponent(Utils.getAbbr(getAbbreviation())).withStyle(ChatFormatting.GRAY));
+        pTooltipComponents.add(new TextComponent("(" + atomicNumber + ")").withStyle(ChatFormatting.GRAY));
     }
 
     @Override

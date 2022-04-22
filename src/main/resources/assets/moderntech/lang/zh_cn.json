@@ -1,6 +1,7 @@
 {
   "item.moderntech.hydrogenum": "氢",
   "item.moderntech.helium": "氦",
+  "item.moderntech.lithium": "锂",
 
   "itemGroup.main": "ModernTech",
   "itemGroup.chemistry": "ModernTech|化工"

@@ -5,5 +5,5 @@ import net.minecraft.world.item.ItemStack;
 
 @FunctionalInterface
 public interface IEntityItemUpdateAction {
-    public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity);
+    void onEntityItemUpdate(ItemStack stack, ItemEntity entity);
 }

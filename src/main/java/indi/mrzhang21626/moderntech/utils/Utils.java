@@ -1,11 +1,19 @@
 package indi.mrzhang21626.moderntech.utils;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Utils {
@@ -37,9 +45,25 @@ public class Utils {
         return new ResourceLocation(Utils.MODID, loc);
     }
 
-    public static void playSound(Level level, BlockPos pos, SoundEvent sound)
-    {
+    public static void playSound(Level level, BlockPos pos, SoundEvent sound) {
         Random rand = level.getRandom();
         level.playSound(null, pos, sound, SoundSource.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() + 0.7F + 0.3F);
+    }
+
+    public static void addParticle(Level level, BlockPos pos, ParticleOptions options) {
+        Random rand = level.getRandom();
+        level.addParticle(options, pos.getX(), pos.getY(), pos.getZ(), -0.5F + rand.nextDouble(), -0.5F + rand.nextDouble(), -0.5F + rand.nextDouble());
+    }
+
+    public static <T extends IForgeRegistryEntry<T>> boolean checkTag(IForgeRegistry<T> registry, T object, TagKey<T> tag) {
+        return Objects.requireNonNull(registry.tags()).getTag(tag).contains(object);
+    }
+
+    public static boolean isFluid(FluidState state, TagKey<Fluid> tag) {
+        return checkTag(ForgeRegistries.FLUIDS, state.getType(), tag);
+    }
+
+    public static boolean isFluid(Fluid first, TagKey<Fluid> second) {
+        return checkTag(ForgeRegistries.FLUIDS, first, second);
     }
 }

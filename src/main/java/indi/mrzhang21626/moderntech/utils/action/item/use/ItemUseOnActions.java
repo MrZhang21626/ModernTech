@@ -16,8 +16,10 @@ public class ItemUseOnActions {
         ItemStack mainHand = player.getMainHandItem();
         ItemStack offHand = player.getOffhandItem();
         Random random = player.getRandom();
+        int damage;
         if (mainHand.is(Items.FLINT_AND_STEEL) && offHand.is(ChemicalItems.hydrogenum)) {
-            mainHand.setDamageValue(mainHand.getDamageValue() + 1);
+            damage = mainHand.getDamageValue();
+            mainHand.setDamageValue(damage + 1);
             offHand.shrink(1);
             if (random.nextInt(40) == 1) {
                 Utils.playSound(player.getLevel(), player.getOnPos(), SoundEvents.GLASS_BREAK);
@@ -25,7 +27,8 @@ public class ItemUseOnActions {
                 player.addItem(new ItemStack(Items.GLASS_BOTTLE));
             }
         } else if (mainHand.is(ChemicalItems.hydrogenum) && offHand.is(Items.FLINT_AND_STEEL)) {
-            offHand.setDamageValue(mainHand.getDamageValue() + 1);
+            damage = offHand.getDamageValue();
+            offHand.setDamageValue(damage + 1);
             mainHand.shrink(1);
             if (random.nextInt(40) == 1) {
                 Utils.playSound(player.getLevel(), player.getOnPos(), SoundEvents.GLASS_BREAK);

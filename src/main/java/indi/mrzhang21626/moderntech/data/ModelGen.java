@@ -1,10 +1,9 @@
 package indi.mrzhang21626.moderntech.data;
 
-import indi.mrzhang21626.moderntech.utils.Utils;
 import indi.mrzhang21626.moderntech.items.BaseItem;
 import indi.mrzhang21626.moderntech.items.chemical.ChemicalItem;
 import indi.mrzhang21626.moderntech.items.chemical.ChemicalItems;
-import indi.mrzhang21626.moderntech.items.chemical.ItemType;
+import indi.mrzhang21626.moderntech.utils.Utils;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -18,13 +17,21 @@ public class ModelGen extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        for(BaseItem item : ChemicalItems.items){
-            if(item instanceof ChemicalItem){
-                if(((ChemicalItem) item).getType().equals(ItemType.GAS)){
-                    getBuilder(item.getRegistryName().getPath())
+        for (BaseItem item : ChemicalItems.items) {
+            if (item instanceof ChemicalItem) {
+                switch (((ChemicalItem) item).getType()) {
+                    case GAS -> getBuilder(item.getRegistryName().getPath())
                             .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                            .texture("layer0",Utils.mtLoc("item/compound"))
-                            .texture("layer1",mcLoc("item/glass_bottle"));
+                            .texture("layer0", Utils.mtLoc("item/layer"))
+                            .texture("layer1", mcLoc("item/glass_bottle"));
+                    case INGOT -> getBuilder(item.getRegistryName().getPath())
+                            .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                            .texture("layer0", Utils.mtLoc("item/ingot_layer"))
+                            .texture("layer1", mcLoc("item/iron_ingot"));
+                    case NUGGET -> getBuilder(item.getRegistryName().getPath())
+                            .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                            .texture("layer0", Utils.mtLoc("item/nugget_layer"))
+                            .texture("layer1", mcLoc("item/iron_nugget"));
                 }
             }
         }

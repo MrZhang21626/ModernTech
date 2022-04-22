@@ -9,6 +9,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
+import org.jetbrains.annotations.NotNull;
 
 public class BaseItem extends Item {
     private IItemUseOnAction itemUseOnAction;
@@ -20,7 +21,7 @@ public class BaseItem extends Item {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public InteractionResult useOn(@NotNull UseOnContext pContext) {
         InteractionResult result = super.useOn(pContext);
         if (result.equals(InteractionResult.PASS)) {
             result = this.itemUseOnAction.useOn(pContext);
@@ -30,11 +31,8 @@ public class BaseItem extends Item {
 
     @Override
     public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
-        boolean result = super.onEntityItemUpdate(stack, entity);
-        if (!result) {
-            result = this.entityItemUpdateAction.onEntityItemUpdate(stack, entity);
-        }
-        return result;
+        this.entityItemUpdateAction.onEntityItemUpdate(stack, entity);
+        return super.onEntityItemUpdate(stack, entity);
     }
 
     public void setItemUseOnAction(IItemUseOnAction itemUseOnAction) {

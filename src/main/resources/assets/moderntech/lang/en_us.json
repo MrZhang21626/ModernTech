@@ -1,6 +1,7 @@
 {
   "item.moderntech.hydrogenum": "Hydrogen",
   "item.moderntech.helium": "Helium",
+  "item.moderntech.lithium": "Lithium",
 
   "itemGroup.main": "ModernTech",
   "itemGroup.chemistry": "ModernTech|Chemistry"
