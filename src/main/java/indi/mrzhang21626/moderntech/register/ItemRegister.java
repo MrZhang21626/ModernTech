@@ -20,7 +20,7 @@ public class ItemRegister {
 
     public static final class Materials{
         public static final ItemRegistryObject<BaseItem> ZINC_INGOT = registry("zinc_ingot");
-
+        public static final ItemRegistryObject<BaseItem> TIN_INGOT = registry("tin_ingot");
         private static void init(){}
     }
 
