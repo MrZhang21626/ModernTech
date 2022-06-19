@@ -15,7 +15,7 @@ public class BaseItem extends Item {
     }
 
     public BaseItem(Properties properties) {
-        this(properties, ModernTech.MTTabs.TAB);
+        this(properties, ModernTech.TAB);
     }
 
     public BaseItem(Properties properties, CreativeModeTab tab) {
