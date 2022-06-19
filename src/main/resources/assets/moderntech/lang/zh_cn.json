@@ -1,9 +1,0 @@
-{
-  "item.moderntech.hydrogenum": "氢",
-  "item.moderntech.helium": "氦",
-  "item.moderntech.lithium": "锂锭",
-  "item.moderntech.lithium_nugget": "锂粒",
-
-  "itemGroup.main": "ModernTech",
-  "itemGroup.chemistry": "ModernTech|化工"
-}

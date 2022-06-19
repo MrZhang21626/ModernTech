@@ -1,45 +1,36 @@
 package indi.mrzhang21626.moderntech.items;
 
-import indi.mrzhang21626.moderntech.utils.Utils;
-import indi.mrzhang21626.moderntech.utils.action.item.update.IEntityItemUpdateAction;
-import indi.mrzhang21626.moderntech.utils.action.item.use.IItemUseOnAction;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
+import indi.mrzhang21626.moderntech.ModernTech;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.UseOnContext;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.item.crafting.RecipeType;
+import org.jetbrains.annotations.Nullable;
 
 public class BaseItem extends Item {
-    private IItemUseOnAction itemUseOnAction;
-    private IEntityItemUpdateAction entityItemUpdateAction;
+    private int burnTime = -1;
 
-    public BaseItem(String name, Properties properties) {
-        super(properties);
-        setRegistryName(new ResourceLocation(Utils.MODID, name));
+    public BaseItem() {
+        this(new Properties());
+    }
+
+    public BaseItem(Properties properties) {
+        this(properties, ModernTech.MTTabs.TAB);
+    }
+
+    public BaseItem(Properties properties, CreativeModeTab tab) {
+        super(properties.tab(tab));
+    }
+
+    public BaseItem setBurnTime(int burnTime) {
+        this.burnTime = burnTime;
+        return this;
     }
 
     @Override
-    public InteractionResult useOn(@NotNull UseOnContext pContext) {
-        InteractionResult result = super.useOn(pContext);
-        if (result.equals(InteractionResult.PASS)) {
-            result = this.itemUseOnAction.useOn(pContext);
-        }
-        return result;
+    public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+        return burnTime;
     }
 
-    @Override
-    public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
-        this.entityItemUpdateAction.onEntityItemUpdate(stack, entity);
-        return super.onEntityItemUpdate(stack, entity);
-    }
 
-    public void setItemUseOnAction(IItemUseOnAction itemUseOnAction) {
-        this.itemUseOnAction = itemUseOnAction;
-    }
-
-    public void setEntityItemUpdateAction(IEntityItemUpdateAction entityItemUpdateAction) {
-        this.entityItemUpdateAction = entityItemUpdateAction;
-    }
 }

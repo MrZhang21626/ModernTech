@@ -1,9 +1,0 @@
-{
-  "item.moderntech.hydrogenum": "Hydrogen",
-  "item.moderntech.helium": "Helium",
-  "item.moderntech.lithium": "Lithium Ingot",
-  "item.moderntech.lithium_nugget": "Lithium Nugget",
-
-  "itemGroup.main": "ModernTech",
-  "itemGroup.chemistry": "ModernTech|Chemistry"
-}
