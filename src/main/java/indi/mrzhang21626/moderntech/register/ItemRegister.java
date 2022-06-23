@@ -1,78 +1,46 @@
 package indi.mrzhang21626.moderntech.register;
 
+import indi.mrzhang21626.moderntech.Lists;
 import indi.mrzhang21626.moderntech.ModernTech;
 import indi.mrzhang21626.moderntech.items.BaseItem;
-import net.minecraft.Util;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import javax.annotation.Nonnull;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ItemRegister {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ModernTech.MODID);
 
-    public static final class Materials{
-        public static final ItemRegistryObject<BaseItem> ZINC_INGOT = registry("zinc_ingot");
-        public static final ItemRegistryObject<BaseItem> TIN_INGOT = registry("tin_ingot");
-        private static void init(){}
+    private ItemRegister() {
     }
 
-    public static void init(){
-        ItemRegister.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        Materials.init();
-    }
+    public static final class Metal {
+        public static final RegistryObject<Item> ZINC_INGOT = registry("zinc_ingot");
+        public static final RegistryObject<Item> TIN_INGOT = registry("tin_ingot");
 
-    private static ItemRegistryObject<BaseItem> registryWithStackSize(String name, int maxStackSize) {
-        return registry(name, p -> p.stacksTo(maxStackSize), i -> {
-        });
-    }
-
-    private static ItemRegistryObject<BaseItem> registry(String name) {
-        return registry(name, $ -> {
-        }, $ -> {
-        });
-    }
-
-    private static ItemRegistryObject<BaseItem> registry(String name, Consumer<Item.Properties> propertiesConsumer, Consumer<BaseItem> baseItemConsumer) {
-        return register(name, () -> Util.make(new BaseItem(Util.make(new Item.Properties(), propertiesConsumer)), baseItemConsumer));
-    }
-
-    private static <I extends Item> ItemRegistryObject<I> register(String name, Supplier<? extends I> make) {
-        return new ItemRegistryObject<>(ITEMS. register(name, make));
-    }
-
-    private static <I extends Item> ItemRegistryObject<I> of(I item) {
-        return new ItemRegistryObject<>(RegistryObject.create(item.getRegistryName(), ForgeRegistries.ITEMS));
-    }
-
-    public static class ItemRegistryObject<I extends Item> implements Supplier<I>, ItemLike {
-        private final RegistryObject<I> registryObject;
-
-        private ItemRegistryObject(RegistryObject<I> registryObject) {
-            this.registryObject = registryObject;
+        private static void init() {
         }
+    }
 
-        @Override
-        @Nonnull
-        public I get() {
-            return registryObject.get();
-        }
+    public static void init() {
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        Metal.init();
+    }
 
-        @Override
-        @Nonnull
-        public Item asItem() {
-            return registryObject.get();
-        }
+    private static <T extends Item> RegistryObject<T> registry(String name, int maxStackSize){
+        return (RegistryObject<T>) registry(name,()->new BaseItem(maxStackSize));
+    }
 
-        public ResourceLocation getID() {
-            return registryObject.getId();
-        }
+    private static <T extends Item> RegistryObject<T> registry(String name){
+        return (RegistryObject<T>) registry(name,BaseItem::new);
+    }
+
+    private static <T extends Item> RegistryObject<T> registry(String name,final Supplier<T> item){
+        RegistryObject<T> object = ITEMS.register(name,item);
+        Lists.itemList.add(object.get());
+        return object;
     }
 }

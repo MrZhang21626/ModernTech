@@ -24,10 +24,11 @@ public class ModernTech {
     public ModernTech() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
-        EventContent.modConstruction();
+
+        EventContent.construction();
     }
 
-    public static void setup(){
+    public static void setup() {
         IEventBus bus = MinecraftForge.EVENT_BUS;
     }
 
