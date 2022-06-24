@@ -1,6 +1,5 @@
 package indi.mrzhang21626.moderntech.register;
 
-import indi.mrzhang21626.moderntech.Lists;
 import indi.mrzhang21626.moderntech.ModernTech;
 import indi.mrzhang21626.moderntech.items.BaseItem;
 import net.minecraft.world.item.Item;
@@ -40,7 +39,6 @@ public class ItemRegister {
 
     private static <T extends Item> RegistryObject<T> registry(String name,final Supplier<T> item){
         RegistryObject<T> object = ITEMS.register(name,item);
-        Lists.itemList.add(object.get());
         return object;
     }
 }

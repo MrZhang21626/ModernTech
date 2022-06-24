@@ -1,6 +1,5 @@
 package indi.mrzhang21626.moderntech.register;
 
-import indi.mrzhang21626.moderntech.Lists;
 import indi.mrzhang21626.moderntech.ModernTech;
 import indi.mrzhang21626.moderntech.blocks.BaseBlock;
 import indi.mrzhang21626.moderntech.blocks.BaseBlockItem;
@@ -35,8 +34,8 @@ public class BlockRegister {
     private static BlockRegistryObject registry(String name, Material material, MaterialColor materialColor, float strength, SoundType soundType) {
         RegistryObject<BaseBlock> block = BLOCKS.register(name, () -> new BaseBlock(material, materialColor, strength, soundType));
         RegistryObject<BaseBlockItem> item = ItemRegister.ITEMS.register(name, () -> new BaseBlockItem(block.get()));
-        Lists.blockList.add(block.get());
-        return new BlockRegistryObject(block, item);
+        BlockRegistryObject blockRegistryObject = new BlockRegistryObject(block, item);
+        return blockRegistryObject;
     }
 
     public static class BlockRegistryObject {

@@ -1,5 +1,6 @@
 package indi.mrzhang21626.moderntech.blocks;
 
+import indi.mrzhang21626.moderntech.Lists;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -13,5 +14,6 @@ public class BaseBlock extends Block {
 
     public BaseBlock(Properties properties) {
         super(properties);
+        Lists.blockList.add(this);
     }
 }

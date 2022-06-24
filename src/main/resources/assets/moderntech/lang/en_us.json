@@ -2,5 +2,7 @@
   "item.moderntech.zinc_ingot": "Zinc Ingot",
   "item.moderntech.tin_ingot": "Tin Ingot",
 
+  "block.moderntech.zinc_block": "Zinc Block",
+
   "itemGroup.moderntech": "ModernTech"
 }

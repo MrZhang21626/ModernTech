@@ -15,10 +15,14 @@ public class ItemModelGenerator extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        for(Item item : Lists.itemList){
-            getBuilder(item.getDescriptionId())
+        for (Item item : Lists.itemList) {
+            getBuilder(item.getRegistryName().getPath())
                     .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                    .texture("layer0",modLoc(item.getDescriptionId()));
+                    .texture("layer0", modLoc("item/" + item.getRegistryName().getPath()));
+        }
+        for (Item item : Lists.blockItemList) {
+            getBuilder(item.getRegistryName().getPath())
+                    .parent(new ModelFile.UncheckedModelFile("moderntech:block/" + item.getRegistryName().getPath() + "_model"));
         }
     }
 }

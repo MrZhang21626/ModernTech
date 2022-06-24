@@ -1,4 +1,5 @@
-f636b4f5324046209d71425e3095168697561669 assets/moderntech/models/item/helium.json
-f636b4f5324046209d71425e3095168697561669 assets/moderntech/models/item/hydrogenum.json
-b8ac1f5d208753fc1a9f8394e03032fc37ccadb8 assets/moderntech/models/item/lithium.json
-a025eeffd495e09e200e338f439c93c5e88754b1 assets/moderntech/models/item/lithium_nugget.json
+75eb0ae69b08c437feebf31e88111f05f1bf041c assets/moderntech/blockstates/zinc_block.json
+17487332680eb5e06208baa1ebc3771855b0fcab assets/moderntech/models/block/zinc_block_model.json
+eee851928fbafa235b83e7b4b8e8c25c5455508a assets/moderntech/models/item/tin_ingot.json
+7374cc8920b7dbeafde947a9dec9903bbf73550e assets/moderntech/models/item/zinc_block.json
+eb64b0e27cf29367134b5bed7e5609add973ea88 assets/moderntech/models/item/zinc_ingot.json

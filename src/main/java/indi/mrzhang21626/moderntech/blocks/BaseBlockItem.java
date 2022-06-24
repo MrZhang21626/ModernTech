@@ -1,5 +1,6 @@
 package indi.mrzhang21626.moderntech.blocks;
 
+import indi.mrzhang21626.moderntech.Lists;
 import indi.mrzhang21626.moderntech.ModernTech;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -24,5 +25,6 @@ public class BaseBlockItem extends BlockItem {
 
     public BaseBlockItem(Block block, Properties properties, CreativeModeTab group) {
         super(block, properties.tab(group));
+        Lists.blockItemList.add(this);
     }
 }
