@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "moderntech:block/zinc_block_model"
+    }
+  }
+}
