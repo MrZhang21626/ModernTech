@@ -14,6 +14,11 @@ public class BaseBlock extends Block {
 
     public BaseBlock(Properties properties) {
         super(properties);
+
+    }
+
+    public BaseBlock withGen(){
         Lists.blockList.add(this);
+        return this;
     }
 }

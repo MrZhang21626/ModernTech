@@ -1,13 +1,18 @@
 package indi.mrzhang21626.moderntech.register;
 
+import indi.mrzhang21626.moderntech.Lists;
 import indi.mrzhang21626.moderntech.ModernTech;
 import indi.mrzhang21626.moderntech.items.BaseItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class ItemRegister {
@@ -17,10 +22,12 @@ public class ItemRegister {
     }
 
     public static final class Metal {
-        public static final RegistryObject<Item> ZINC_INGOT = registry("zinc_ingot");
-        public static final RegistryObject<Item> TIN_INGOT = registry("tin_ingot");
+        public static final List<ItemRegistryObject<BaseItem>> metals_ingot = new ArrayList<>();
 
         private static void init() {
+            for (String name : Lists.metals.keySet()) {
+                metals_ingot.add(defaultRegistry(name + "_ingot"));
+            }
         }
     }
 
@@ -29,16 +36,32 @@ public class ItemRegister {
         Metal.init();
     }
 
-    private static <T extends Item> RegistryObject<T> registry(String name, int maxStackSize){
-        return (RegistryObject<T>) registry(name,()->new BaseItem(maxStackSize));
+    private static ItemRegistryObject<BaseItem> defaultRegistry(String name, int maxStackSize) {
+        return register(name, () -> new BaseItem(maxStackSize));
     }
 
-    private static <T extends Item> RegistryObject<T> registry(String name){
-        return (RegistryObject<T>) registry(name,BaseItem::new);
+    private static ItemRegistryObject<BaseItem> defaultRegistry(String name) {
+        return register(name, BaseItem::new);
     }
 
-    private static <T extends Item> RegistryObject<T> registry(String name,final Supplier<T> item){
-        RegistryObject<T> object = ITEMS.register(name,item);
-        return object;
+    private static <T extends Item> ItemRegistryObject<T> register(String name, final Supplier<T> item) {
+        return new ItemRegistryObject<>(ITEMS.register(name, item));
+    }
+
+    public static class ItemRegistryObject<T extends Item> implements Supplier<T>, ItemLike {
+        private RegistryObject<T> item;
+        public ItemRegistryObject(RegistryObject<T> registryObject){
+            this.item = registryObject;
+        }
+
+        @Override
+        public T get() {
+            return item.get();
+        }
+
+        @Override
+        public @NotNull Item asItem() {
+            return item.get();
+        }
     }
 }

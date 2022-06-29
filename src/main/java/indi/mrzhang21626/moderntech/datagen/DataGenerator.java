@@ -1,5 +1,6 @@
 package indi.mrzhang21626.moderntech.datagen;
 
+import indi.mrzhang21626.moderntech.datagen.loottables.LootTablesProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
@@ -11,5 +12,8 @@ public class DataGenerator {
         event.getGenerator().addProvider(new ItemModelGenerator(event.getGenerator(), event.getExistingFileHelper()));
         event.getGenerator().addProvider(new BlockModelGenerator(event.getGenerator(), event.getExistingFileHelper()));
         event.getGenerator().addProvider(new BlockStateGenerator(event.getGenerator(), event.getExistingFileHelper()));
+        event.getGenerator().addProvider(new LootTablesProvider(event.getGenerator()));
+        event.getGenerator().addProvider(new BlockTagsGenerator(event.getGenerator(), event.getExistingFileHelper()));
+
     }
 }
