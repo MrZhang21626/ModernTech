@@ -1,0 +1,11 @@
+{
+  "item.moderntech.beryllium_dust": "铍粉",
+  "item.moderntech.beryllium_tiny_dust": "小撮铍粉",
+  "item.moderntech.beryllium_ingot": "铍锭",
+  "item.moderntech.beryllium_nugget": "铍粒",
+  "item.moderntech.beryllium_plate": "铍板",
+  "item.moderntech.beryllium_rod": "铍棒",
+  "block.moderntech.beryllium_block": "铍块",
+
+  "itemGroup.tab": "ModernTech"
+}

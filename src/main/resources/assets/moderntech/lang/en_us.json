@@ -1,0 +1,11 @@
+{
+  "item.moderntech.beryllium_dust": "Beryllium Dust",
+  "item.moderntech.beryllium_tiny_dust": "Tiny Pile of Beryllium Dust",
+  "item.moderntech.beryllium_ingot": "Beryllium Ingot",
+  "item.moderntech.beryllium_nugget": "Beryllium Nugget",
+  "item.moderntech.beryllium_plate": "Beryllium Plate",
+  "item.moderntech.beryllium_rod": "Beryllium Rod",
+  "block.moderntech.beryllium_block": "Beryllium Block",
+
+  "itemGroup.tab": "ModernTech"
+}
