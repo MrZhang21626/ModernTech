@@ -5,19 +5,34 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
-public enum Material {
-    BERYLLIUM("beryllium", 5.5f);
+import java.util.HashMap;
+import java.util.Map;
 
-    private RegistryObject<Item> dust, tinyDust, ingot, nugget, plate, rod;
+public enum Material {
+    BERYLLIUM("beryllium", 5.5f, true, true, true, true, true, true, true, true),
+    BORON("boron", 9.5f, true, true, true, true, false, true, true, true);
+
+    private RegistryObject<Item> dust, tinyDust, ingot, nugget, plate, rod, screw;
+    private final boolean hasDust, hasTinyDust, hasIngot, hasNugget, hasPlate, hasRod, hasScrew, hasBlock;
     private RegistryObject<Block> block;
+    private final Map<Material, RegistryObject<Block>> blockOfPlate = new HashMap<>();
     private RegistryObject<BlockItem> blockItem;
+    private final Map<Material, RegistryObject<BlockItem>> itemBlockOfPlate = new HashMap<>();
 
     private final float hardness;
     private final String name;
 
-    Material(String name, float hardness) {
+    Material(String name, float hardness, boolean hasDust, boolean hasTinyDust, boolean hasIngot, boolean hasNugget, boolean hasPlate, boolean hasRod, boolean hasScrew, boolean hasBlock) {
         this.name = name;
         this.hardness = hardness;
+        this.hasDust = hasDust;
+        this.hasTinyDust = hasTinyDust;
+        this.hasIngot = hasIngot;
+        this.hasNugget = hasNugget;
+        this.hasPlate = hasPlate;
+        this.hasRod = hasRod;
+        this.hasScrew = hasScrew;
+        this.hasBlock = hasBlock;
     }
 
 
@@ -92,5 +107,61 @@ public enum Material {
 
     public void setBlockItem(RegistryObject<BlockItem> blockItem) {
         this.blockItem = blockItem;
+    }
+
+    public Map<Material, RegistryObject<Block>> getBlockOfPlate() {
+        return blockOfPlate;
+    }
+
+    public void addBlockOfPlate(Material material, RegistryObject<Block> block) {
+        blockOfPlate.put(material, block);
+    }
+
+    public Map<Material, RegistryObject<BlockItem>> getItemBlockOfPlate() {
+        return itemBlockOfPlate;
+    }
+
+    public void addItemBlockOfPlate(Material material, RegistryObject<BlockItem> blockItem) {
+        itemBlockOfPlate.put(material, blockItem);
+    }
+
+    public boolean isHasDust() {
+        return hasDust;
+    }
+
+    public boolean isHasTinyDust() {
+        return hasTinyDust;
+    }
+
+    public boolean isHasIngot() {
+        return hasIngot;
+    }
+
+    public boolean isHasNugget() {
+        return hasNugget;
+    }
+
+    public boolean isHasPlate() {
+        return hasPlate;
+    }
+
+    public boolean isHasRod() {
+        return hasRod;
+    }
+
+    public boolean isHasScrew() {
+        return hasScrew;
+    }
+
+    public RegistryObject<Item> getScrew() {
+        return screw;
+    }
+
+    public void setScrew(RegistryObject<Item> screw) {
+        this.screw = screw;
+    }
+
+    public boolean isHasBlock() {
+        return hasBlock;
     }
 }

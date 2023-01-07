@@ -20,20 +20,21 @@ public class ItemTagsGenerator extends ItemTagsProvider {
     @Override
     protected void addTags() {
         for (var material : Material.values()) {
-            tag(forgetag("dusts/" + material.getName())).add(material.getDust().get());
-            tag(forgetag("tiny_dusts/" + material.getName())).add(material.getTinyDust().get());
-            tag(forgetag("ingots/" + material.getName())).add(material.getIngot().get());
-            tag(forgetag("nuggets/" + material.getName())).add(material.getNugget().get());
-            tag(forgetag("plates/" + material.getName())).add(material.getPlate().get());
-            tag(forgetag("rods/" + material.getName())).add(material.getRod().get());
-            tag(forgetag("storage_blocks/" + material.getName())).add(material.getBlockItem().get());
-            tag(forgetag("dusts")).add(material.getDust().get());
-            tag(forgetag("tiny_dusts")).add(material.getTinyDust().get());
-            tag(forgetag("ingots")).add(material.getIngot().get());
-            tag(forgetag("nuggets")).add(material.getNugget().get());
-            tag(forgetag("plates")).add(material.getPlate().get());
-            tag(forgetag("rods")).add(material.getRod().get());
-            tag(forgetag("storage_blocks")).add(material.getBlockItem().get());
+            if (material.isHasDust()) tag(forgetag("dusts/" + material.getName())).add(material.getDust().get());
+            if (material.isHasTinyDust())
+                tag(forgetag("tiny_dusts/" + material.getName())).add(material.getTinyDust().get());
+            if (material.isHasIngot()) tag(forgetag("ingots/" + material.getName())).add(material.getIngot().get());
+            if (material.isHasNugget()) tag(forgetag("nuggets/" + material.getName())).add(material.getNugget().get());
+            if (material.isHasPlate()) tag(forgetag("plates/" + material.getName())).add(material.getPlate().get());
+            if (material.isHasRod()) tag(forgetag("rods/" + material.getName())).add(material.getRod().get());
+            if (material.isHasScrew()) tag(forgetag("screws/" + material.getName())).add(material.getScrew().get());
+            if (material.isHasDust()) tag(forgetag("dusts")).add(material.getDust().get());
+            if (material.isHasTinyDust()) tag(forgetag("tiny_dusts")).add(material.getTinyDust().get());
+            if (material.isHasIngot()) tag(forgetag("ingots")).add(material.getIngot().get());
+            if (material.isHasNugget()) tag(forgetag("nuggets")).add(material.getNugget().get());
+            if (material.isHasPlate()) tag(forgetag("plates")).add(material.getPlate().get());
+            if (material.isHasRod()) tag(forgetag("rods")).add(material.getRod().get());
+            if (material.isHasScrew()) tag(forgetag("screws")).add(material.getScrew().get());
 
         }
     }

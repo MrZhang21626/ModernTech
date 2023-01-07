@@ -1,0 +1,7 @@
+{
+  "parent": "moderntech:block/block_of_plate",
+  "textures": {
+    "screw": "moderntech:block/materials/boron_block",
+    "plate": "moderntech:block/materials/beryllium_plate"
+  }
+}

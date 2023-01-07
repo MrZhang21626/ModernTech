@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/boron"
+  },
+  "result": "moderntech:boron_ingot",
+  "experience": 0.0,
+  "cookingtime": 200
+}

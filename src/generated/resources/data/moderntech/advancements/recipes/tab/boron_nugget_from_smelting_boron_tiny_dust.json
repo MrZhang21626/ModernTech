@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:boron_nugget_from_smelting_boron_tiny_dust"
+    ]
+  },
+  "criteria": {
+    "has_boron_tiny_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moderntech:boron_tiny_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:boron_nugget_from_smelting_boron_tiny_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_boron_tiny_dust",
+      "has_the_recipe"
+    ]
+  ]
+}

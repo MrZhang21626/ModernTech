@@ -18,7 +18,7 @@ public class BlockLootGenerator extends BlockLoot {
     @Override
     protected void addTables() {
         for (var material : Material.values()) {
-            dropSelfWithContents(material.getBlock().get());
+            if (material.isHasBlock()) dropSelfWithContents(material.getBlock().get());
         }
     }
 

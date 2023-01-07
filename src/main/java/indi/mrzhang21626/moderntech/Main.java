@@ -19,7 +19,7 @@ public class Main {
     };
 
     public Main() {
-        ItemRegistries.init();
         BlockRegistries.init();
+        ItemRegistries.init();
     }
 }

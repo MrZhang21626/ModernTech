@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:block_of_beryllium_plate_with_beryllium_screw_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_beryllium_screw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moderntech:beryllium_screw"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:block_of_beryllium_plate_with_beryllium_screw_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beryllium_screw",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -43,12 +43,13 @@ public class ItemModelGenerator extends ItemModelProvider {
     protected void registerItem(Set<Item> items) {
         items.forEach(this::generatedItem);
         for (var material : Material.values()) {
-            generatedItem(material.getDust().get(), "materials/dust/");
-            generatedItem(material.getTinyDust().get(), "materials/tiny_dust/");
-            generatedItem(material.getIngot().get(), "materials/ingot/");
-            generatedItem(material.getNugget().get(), "materials/nugget/");
-            generatedItem(material.getPlate().get(), "materials/plate/");
-            generatedItem(material.getRod().get(), "materials/rod/");
+            if (material.isHasDust()) generatedItem(material.getDust().get(), "materials/dust/");
+            if (material.isHasTinyDust()) generatedItem(material.getTinyDust().get(), "materials/tiny_dust/");
+            if (material.isHasIngot()) generatedItem(material.getIngot().get(), "materials/ingot/");
+            if (material.isHasNugget()) generatedItem(material.getNugget().get(), "materials/nugget/");
+            if (material.isHasPlate()) generatedItem(material.getPlate().get(), "materials/plate/");
+            if (material.isHasRod()) generatedItem(material.getRod().get(), "materials/rod/");
+            if (material.isHasScrew()) generatedItem(material.getScrew().get(), "materials/screw/");
         }
     }
 

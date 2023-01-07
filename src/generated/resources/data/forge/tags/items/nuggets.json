@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moderntech:beryllium_nugget"
+    "moderntech:beryllium_nugget",
+    "moderntech:boron_nugget"
   ]
 }

@@ -15,10 +15,24 @@ public class BlockStateAndModelGenerator extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         for (var material : Material.values()) {
-            var block = material.getBlock().get();
-            var name = block.getRegistryName();
-            simpleBlock(block, models().cubeAll(name.getPath(),
-                    new ResourceLocation(name.getNamespace(), "block/materials/" + name.getPath())));
+            if (material.isHasBlock()) {
+                var block = material.getBlock().get();
+                var name = block.getRegistryName();
+                simpleBlock(block, models().cubeAll(name.getPath(),
+                        new ResourceLocation(name.getNamespace(), "block/materials/" + name.getPath())));
+            }
+        }
+        for (var plate : Material.values()) {
+            if (!plate.isHasPlate()) continue;
+            for (var screw : Material.values()) {
+                if (!screw.isHasScrew()) continue;
+                var block = plate.getBlockOfPlate().get(screw).get();
+                var name = block.getRegistryName();
+                simpleBlock(block, models()
+                        .withExistingParent(name.getPath(), modLoc("block/block_of_plate"))
+                        .texture("screw", "block/materials/" + screw.getName() + "_block")
+                        .texture("plate", "block/materials/" + plate.getName() + "_plate"));
+            }
         }
     }
 }

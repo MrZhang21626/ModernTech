@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:beryllium_nugget_from_smelting_beryllium_tiny_dust"
+    ]
+  },
+  "criteria": {
+    "has_beryllium_tiny_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moderntech:beryllium_tiny_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:beryllium_nugget_from_smelting_beryllium_tiny_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beryllium_tiny_dust",
+      "has_the_recipe"
+    ]
+  ]
+}

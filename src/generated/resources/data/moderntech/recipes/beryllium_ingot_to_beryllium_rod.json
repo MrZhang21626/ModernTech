@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/beryllium"
+    }
+  },
+  "result": {
+    "item": "moderntech:beryllium_rod",
+    "count": 4
+  }
+}

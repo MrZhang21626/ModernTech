@@ -23,17 +23,19 @@ public class DataGenEvent {
             datagen.addProvider(blockTags);
             datagen.addProvider(new ItemTagsGenerator(datagen, blockTags, helper));
             datagen.addProvider(new LootTableGenerator(datagen));
+            datagen.addProvider(new RecipeGenerator(datagen));
         }
         if (event.includeClient()) {
             datagen.addProvider(new BlockStateAndModelGenerator(datagen, helper));
             var itemModelGenerator = new ItemModelGenerator(datagen, helper, ItemRegistries.ITEMS);
             for (var material : Material.values()) {
-                itemModelGenerator.skipItems(material.getDust().get());
-                itemModelGenerator.skipItems(material.getTinyDust().get());
-                itemModelGenerator.skipItems(material.getIngot().get());
-                itemModelGenerator.skipItems(material.getNugget().get());
-                itemModelGenerator.skipItems(material.getPlate().get());
-                itemModelGenerator.skipItems(material.getRod().get());
+                if (material.isHasDust()) itemModelGenerator.skipItems(material.getDust().get());
+                if (material.isHasTinyDust()) itemModelGenerator.skipItems(material.getTinyDust().get());
+                if (material.isHasIngot()) itemModelGenerator.skipItems(material.getIngot().get());
+                if (material.isHasNugget()) itemModelGenerator.skipItems(material.getNugget().get());
+                if (material.isHasPlate()) itemModelGenerator.skipItems(material.getPlate().get());
+                if (material.isHasRod()) itemModelGenerator.skipItems(material.getRod().get());
+                if (material.isHasScrew()) itemModelGenerator.skipItems(material.getScrew().get());
             }
             datagen.addProvider(itemModelGenerator);
         }
