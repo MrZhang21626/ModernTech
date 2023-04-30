@@ -1,0 +1,15 @@
+Java Launcher: D:\Java\Java17\bin\java.exe
+Arguments: '--task, SRG_TO_MCP, --input, E:\ForgeWorkspace\.gradle\caches\modules-2\files-2.1\curse.maven\jade-324717\3865918\302909c4bbac17744471dd8f8bc083385658aa8e\jade-324717-3865918.jar, --output, E:\ForgeWorkspace\.gradle\caches\forge_gradle\deobf_dependencies\curse\maven\jade-324717\3865918_mapped_official_1.18.2\jade-324717-3865918_mapped_official_1.18.2.jar, --mcp, E:\ForgeWorkspace\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\mapping\1.18.2\mapping-1.18.2-mapping.zip, --strip-signatures'
+Classpath:
+ - E:\ForgeWorkspace\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\installertools\1.3.2\installertools-1.3.2-fatjar.jar
+Working directory: E:\ForgeWorkspace\ModernTech\build\_RenameSrg2Mcp_-459286961
+Main class: net.minecraftforge.installertools.ConsoleTool
+====================================
+Task: SRG_TO_MCP
+Input:  E:\ForgeWorkspace\.gradle\caches\modules-2\files-2.1\curse.maven\jade-324717\3865918\302909c4bbac17744471dd8f8bc083385658aa8e\jade-324717-3865918.jar
+Output: E:\ForgeWorkspace\.gradle\caches\forge_gradle\deobf_dependencies\curse\maven\jade-324717\3865918_mapped_official_1.18.2\jade-324717-3865918_mapped_official_1.18.2.jar
+MCP:    E:\ForgeWorkspace\.gradle\caches\forge_gradle\mcp_repo\net\minecraft\mapping\1.18.2\mapping-1.18.2-mapping.zip
+Loading MCP Data
+Processing ZIP file
+Stripped Manifest of sha digests
+Process complete
