@@ -11,23 +11,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Material {
-    BERYLLIUM("beryllium", "Be", 0x559855, 5.5f);
+    BERYLLIUM("beryllium", "Be", 0x559855, 5.5f, 256);
     public final String name, formula;
-    public final int color;
+    public final int color, durability;
     public final float strength;
     public final net.minecraft.world.level.material.Material material;
     public final SoundType sound;
-    public final boolean hasIngot, hasNugget, hasBlock, hasPlate, hasDustSeries, hasRod, hasBoltAndScrew, hasGearSeries;
+    public final boolean hasIngot, hasNugget, hasBlock, hasPlate, hasDustSeries, hasRod, hasBoltAndScrew, hasGearSeries, hasTools;
     public final Map<String, RegistryObject<Item>> ITEMS = new HashMap<>();
+    public final Map<String, RegistryObject<Item>> TOOLS = new HashMap<>();
     public RegistryObject<BaseBlock> block;
     public RegistryObject<BlockItem> blockItem;
 
-    Material(String name, String formula, int color, float strength, net.minecraft.world.level.material.Material material, SoundType sound,
+    Material(String name, String formula, int color, int durability, float strength, net.minecraft.world.level.material.Material material, SoundType sound,
              boolean hasIngot, boolean hasNugget, boolean hasBlock, boolean hasPlate, boolean hasDustSeries, boolean hasRod,
-             boolean hasBoltAndScrew, boolean hasGearSeries) {
+             boolean hasBoltAndScrew, boolean hasGearSeries, boolean hasTools) {
         this.name = name;
         this.formula = ModernTech.Utils.formatFormula(formula);
         this.color = color;
+        this.durability = durability;
         this.strength = strength;
         this.material = material;
         this.sound = sound;
@@ -39,10 +41,11 @@ public enum Material {
         this.hasRod = hasRod;
         this.hasBoltAndScrew = hasBoltAndScrew;
         this.hasGearSeries = hasGearSeries;
+        this.hasTools = hasTools;
     }
 
-    Material(String name, String formula, int color, float strength) {
-        this(name, formula, color, strength, net.minecraft.world.level.material.Material.METAL, SoundType.METAL,
-                true, true, true, true, true, true, true, true);
+    Material(String name, String formula, int color, float strength, int durability) {
+        this(name, formula, color, durability, strength, net.minecraft.world.level.material.Material.METAL, SoundType.METAL,
+                true, true, true, true, true, true, true, true, true);
     }
 }

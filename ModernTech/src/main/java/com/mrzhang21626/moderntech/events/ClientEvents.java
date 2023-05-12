@@ -14,6 +14,12 @@ public class ClientEvents {
             for (var item : material.ITEMS.values()) {
                 event.getItemColors().register((stack, id) -> material.color, item.get());
             }
+            for (var item : material.TOOLS.values()) {
+                event.getItemColors().register((stack, id) -> {
+                    if (id == 0) return material.color;
+                    else return -1;
+                }, item.get());
+            }
         }
     }
 

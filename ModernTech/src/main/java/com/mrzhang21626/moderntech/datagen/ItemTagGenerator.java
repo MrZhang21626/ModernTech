@@ -7,6 +7,8 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,10 +22,24 @@ public class ItemTagGenerator extends ItemTagsProvider {
         //Material Items
         for (var material : Material.values()) {
             for (var type : material.ITEMS.keySet()) {
-                var item = material.ITEMS.get(type);
-                tag(ItemTags.create(new ResourceLocation("forge", type + "s/" + material.name))).add(item.get());
-                tag(ItemTags.create(new ResourceLocation("forge", type + "s"))).add(item.get());
+                var item = material.ITEMS.get(type).get();
+                tag(getTag("forge", type + "/" + material.name)).add(item);
+                tag(getTag("forge", type)).add(item);
+            }
+            for (var type : material.TOOLS.keySet()) {
+                var item = material.TOOLS.get(type).get();
+                tag(getTag("forge", "tools/" + type)).add(item);
+                tag(getTag("forge", "tools/" + type + "/" + material.name)).add(item);
+                for (var beProcessedMaterial : Material.values()) {
+                    if (material.strength >= beProcessedMaterial.strength)
+                        tag(getTag("moderntech", "tools/can_process_" + beProcessedMaterial.name)).add(item);
+                    else tag(getTag("moderntech", "tools/cannot_process_" + beProcessedMaterial.name)).add(item);
+                }
             }
         }
+    }
+
+    private TagKey<Item> getTag(String modid, String name) {
+        return ItemTags.create(new ResourceLocation(modid, name));
     }
 }
