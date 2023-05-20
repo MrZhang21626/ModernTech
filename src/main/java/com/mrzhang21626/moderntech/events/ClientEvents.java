@@ -12,7 +12,11 @@ public class ClientEvents {
     public static void onItemColorHandlerEvent(ColorHandlerEvent.Item event) {
         for (var material : Material.values()) {
             for (var item : material.ITEMS.values()) {
-                event.getItemColors().register((stack, id) -> material.color, item.get());
+                switch (item.get().getRegistryName().getPath()) {
+                    case "iron_ingot", "iron_nugget", "copper_ingot" -> {
+                    }
+                    default -> event.getItemColors().register((stack, id) -> material.color, item.get());
+                }
             }
             for (var item : material.TOOLS.values()) {
                 event.getItemColors().register((stack, id) -> {

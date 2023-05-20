@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "moderntech:beryllium_plate"
+    "moderntech:beryllium_plate",
+    "moderntech:iron_plate",
+    "moderntech:copper_plate"
   ]
 }

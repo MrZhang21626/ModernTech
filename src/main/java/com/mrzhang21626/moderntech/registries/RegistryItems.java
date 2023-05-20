@@ -5,10 +5,12 @@ import com.mrzhang21626.moderntech.items.BaseBlockItem;
 import com.mrzhang21626.moderntech.items.BaseItem;
 import com.mrzhang21626.moderntech.items.tools.HammerItem;
 import com.mrzhang21626.moderntech.materials.Material;
+import com.mrzhang21626.moderntech.registries.registration.ItemRegistration;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public class RegistryItems {
 
@@ -22,10 +24,18 @@ public class RegistryItems {
     private static void registryMaterialItems() {
         for (var material : Material.values()) {
             if (material.hasIngot) {
-                material.ITEMS.put("ingots", getMaterialItem(material.name, "ingot", material.formula));
+                switch (material) {
+                    case IRON -> material.ITEMS.put("ingots", new ItemRegistration(Items.IRON_INGOT));
+                    case COPPER -> material.ITEMS.put("ingots", new ItemRegistration(Items.COPPER_INGOT));
+                    default -> material.ITEMS.put("ingots", getMaterialItem(material.name, "ingot", material.formula));
+                }
             }
             if (material.hasNugget) {
-                material.ITEMS.put("nuggets", getMaterialItem(material.name, "nugget", material.formula));
+                switch (material) {
+                    case IRON -> material.ITEMS.put("nuggets", new ItemRegistration(Items.IRON_NUGGET));
+                    default ->
+                            material.ITEMS.put("nuggets", getMaterialItem(material.name, "nugget", material.formula));
+                }
             }
             if (material.hasPlate) {
                 material.ITEMS.put("plates", getMaterialItem(material.name, "plate", material.formula));
@@ -36,8 +46,12 @@ public class RegistryItems {
                 material.ITEMS.put("tiny_dusts", getMaterialItem(material.name, "tiny_dust", material.formula));
             }
             if (material.hasBlock) {
-                material.blockItem = ITEMS.register(material.name + "_block", () ->
-                        new BaseBlockItem(material.block.get(), ModernTech.MATERIAL_TAB, material.formula));
+                switch (material) {
+                    case IRON -> material.block.setBlockItem((BlockItem) Items.IRON_BLOCK);
+                    case COPPER -> material.block.setBlockItem((BlockItem) Items.COPPER_BLOCK);
+                    default -> material.block.setBlockItem(ITEMS.register(material.name + "_block",
+                            () -> new BaseBlockItem(material.block.getBlock(), ModernTech.MATERIAL_TAB, material.formula)));
+                }
             }
             if (material.hasRod) {
                 material.ITEMS.put("rods", getMaterialItem(material.name, "rod", material.formula));
@@ -51,12 +65,13 @@ public class RegistryItems {
                 material.ITEMS.put("small_gears", getMaterialItem(material.name, "small_gear", material.formula));
             }
             if (material.hasTools) {
-                material.TOOLS.put("hammers", ITEMS.register(material.name + "_hammer", () -> new HammerItem(material.durability, material.formula)));
+                material.TOOLS.put("hammers", new ItemRegistration(ITEMS.register(material.name + "_hammer",
+                        () -> new HammerItem(material.durability, material.formula))));
             }
         }
     }
 
-    private static RegistryObject<Item> getMaterialItem(String materialName, String type, String formula) {
-        return ITEMS.register(materialName + "_" + type, () -> new BaseItem(ModernTech.MATERIAL_TAB, formula));
+    private static ItemRegistration getMaterialItem(String materialName, String type, String formula) {
+        return new ItemRegistration(ITEMS.register(materialName + "_" + type, () -> new BaseItem(ModernTech.MATERIAL_TAB, formula)));
     }
 }

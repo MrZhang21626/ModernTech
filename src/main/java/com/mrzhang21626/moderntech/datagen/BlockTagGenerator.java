@@ -18,9 +18,9 @@ public class BlockTagGenerator extends BlockTagsProvider {
     protected void addTags() {
         for (var material : Material.values()) {
             if (material.hasBlock) {
-                tag(BlockTags.MINEABLE_WITH_PICKAXE).add(material.block.get());
-                tag(BlockTags.create(new ResourceLocation("forge", "storage_blocks/" + material.name))).add(material.block.get());
-                tag(BlockTags.create(new ResourceLocation("forge", "storage_blocks"))).add(material.block.get());
+                tag(BlockTags.MINEABLE_WITH_PICKAXE).add(material.block.getBlock());
+                tag(BlockTags.create(new ResourceLocation("forge", "storage_blocks/" + material.name))).add(material.block.getBlock());
+                tag(BlockTags.create(new ResourceLocation("forge", "storage_blocks"))).add(material.block.getBlock());
             }
         }
     }

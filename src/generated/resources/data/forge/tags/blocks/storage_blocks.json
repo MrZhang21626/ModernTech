@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "moderntech:beryllium_block"
+    "moderntech:beryllium_block",
+    "minecraft:iron_block",
+    "minecraft:copper_block"
   ]
 }

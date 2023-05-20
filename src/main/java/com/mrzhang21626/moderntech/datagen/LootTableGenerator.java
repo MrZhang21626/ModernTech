@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.List;
@@ -35,7 +36,7 @@ public class LootTableGenerator extends LootTableProvider {
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
+    protected void validate(@NotNull Map<ResourceLocation, LootTable> map, @NotNull ValidationContext validationtracker) {
 
     }
 
@@ -51,7 +52,7 @@ public class LootTableGenerator extends LootTableProvider {
         }
 
         @Override
-        protected void add(Block block, LootTable.Builder builder) {
+        protected void add(@NotNull Block block, LootTable.@NotNull Builder builder) {
             super.add(block, builder);
             skipBlocks.add(block);
         }
@@ -60,14 +61,14 @@ public class LootTableGenerator extends LootTableProvider {
         protected void addTables() {
             for (var material : Material.values()) {
                 if (material.hasBlock) {
-                    var block = material.block.get();
+                    var block = material.block.getBlock();
                     dropSelfWithContents(block);
                 }
             }
         }
 
         @Override
-        protected Iterable<Block> getKnownBlocks() {
+        protected @NotNull Iterable<Block> getKnownBlocks() {
             return skipBlocks;
         }
     }

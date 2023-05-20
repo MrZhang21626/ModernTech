@@ -1,27 +1,26 @@
 package com.mrzhang21626.moderntech.materials;
 
 import com.mrzhang21626.moderntech.ModernTech;
-import com.mrzhang21626.moderntech.blocks.BaseBlock;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import com.mrzhang21626.moderntech.registries.registration.BlockRegistration;
+import com.mrzhang21626.moderntech.registries.registration.ItemRegistration;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public enum Material {
-    BERYLLIUM("beryllium", "Be", 0x559855, 5.5f, 256);
+    BERYLLIUM("beryllium", "Be", 0x559855, 5.5f, 282),
+    IRON("iron", "Fe", 0xd8d8d8, 5.0f, 256),
+    COPPER("copper", "Cu", 0xc15a36, 3.0f, 154);
     public final String name, formula;
     public final int color, durability;
     public final float strength;
     public final net.minecraft.world.level.material.Material material;
     public final SoundType sound;
     public final boolean hasIngot, hasNugget, hasBlock, hasPlate, hasDustSeries, hasRod, hasBoltAndScrew, hasGearSeries, hasTools;
-    public final Map<String, RegistryObject<Item>> ITEMS = new HashMap<>();
-    public final Map<String, RegistryObject<Item>> TOOLS = new HashMap<>();
-    public RegistryObject<BaseBlock> block;
-    public RegistryObject<BlockItem> blockItem;
+    public final Map<String, ItemRegistration> ITEMS = new HashMap<>();
+    public final Map<String, ItemRegistration> TOOLS = new HashMap<>();
+    public BlockRegistration block;
 
     Material(String name, String formula, int color, int durability, float strength, net.minecraft.world.level.material.Material material, SoundType sound,
              boolean hasIngot, boolean hasNugget, boolean hasBlock, boolean hasPlate, boolean hasDustSeries, boolean hasRod,

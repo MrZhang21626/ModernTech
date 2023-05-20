@@ -26,7 +26,15 @@ public class ItemModelGenerator extends ItemModelProvider {
                 var item = material.ITEMS.get(type).get();
                 generatedItem(name(item), modLoc("item/material/" + ModernTech.Utils.getTextureName(type)));
             }
-            withExistingParent(name(material.blockItem.get()), modLoc("block/" + name(material.blockItem.get())));
+            if (material.hasBlock) {
+                switch (material) {
+                    case IRON, COPPER -> {
+                    }
+                    default -> withExistingParent(name(material.block.getBlockItem()),
+                            modLoc("block/" + name(material.block.getBlockItem())));
+
+                }
+            }
             for (var type : material.TOOLS.keySet()) {
                 var item = material.TOOLS.get(type).get();
                 if (type.equals("hammers")) {

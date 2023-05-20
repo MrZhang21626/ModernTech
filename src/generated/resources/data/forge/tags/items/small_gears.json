@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "moderntech:beryllium_small_gear"
+    "moderntech:beryllium_small_gear",
+    "moderntech:iron_small_gear",
+    "moderntech:copper_small_gear"
   ]
 }

@@ -4,12 +4,14 @@ import com.mojang.logging.LogUtils;
 import com.mrzhang21626.moderntech.materials.Material;
 import com.mrzhang21626.moderntech.registries.RegistryBlocks;
 import com.mrzhang21626.moderntech.registries.RegistryItems;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import javax.annotation.Nonnull;
@@ -31,6 +33,16 @@ public class ModernTech {
         @Nonnull
         public ItemStack makeIcon() {
             return new ItemStack(Material.BERYLLIUM.ITEMS.get("ingots").get());
+        }
+
+        @Override
+        public void fillItemList(@NotNull NonNullList<ItemStack> stacks) {
+            for (var material : Material.values()) {
+                for (var type : material.ITEMS.keySet()) {
+                    var item = material.ITEMS.get(type).get();
+                    stacks.add(new ItemStack(item));
+                }
+            }
         }
     };
     public static final CreativeModeTab TOOL_TAB = new CreativeModeTab("tool_tab") {
@@ -102,6 +114,12 @@ public class ModernTech {
                 }
             }
             return "";
+        }
+
+        public static String toUpper(String s) {
+            char[] chars = s.toCharArray();
+            if (chars[0] >= 'a' && chars[0] <= 'z') chars[0] = (char) (chars[0] - 'a' + 'A');
+            return String.valueOf(chars);
         }
     }
 }

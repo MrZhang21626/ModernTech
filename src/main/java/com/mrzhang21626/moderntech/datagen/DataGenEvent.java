@@ -22,6 +22,8 @@ public class DataGenEvent {
             generator.addProvider(blockTagsGenerator);
             generator.addProvider(new ItemTagGenerator(generator, blockTagsGenerator, helper));
             generator.addProvider(new LootTableGenerator(generator));
+            generator.addProvider(new RecipeGenerator(generator));
+            generator.addProvider(new LangGenerator(generator));
         }
         if (event.includeReports()) {
 

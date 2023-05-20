@@ -15,7 +15,14 @@ public class BlockModelGenerator extends BlockStateProvider {
     protected void registerStatesAndModels() {
         //Material Blocks
         for (var material : Material.values()) {
-            simpleBlock(material.block.get(), models().cubeAll(material.name + "_block", modLoc("block/material/" + material.name + "_block")));
+            if (material.hasBlock) {
+                switch (material) {
+                    case COPPER, IRON -> {
+                    }
+                    default -> simpleBlock(material.block.getBlock(), models().cubeAll(material.name + "_block",
+                            modLoc("block/material/" + material.name + "_block")));
+                }
+            }
         }
     }
 }

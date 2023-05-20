@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "moderntech:beryllium_dust"
+    "moderntech:beryllium_dust",
+    "moderntech:iron_dust",
+    "moderntech:copper_dust"
   ]
 }

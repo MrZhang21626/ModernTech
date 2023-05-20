@@ -28,12 +28,13 @@ public class ItemTagGenerator extends ItemTagsProvider {
             }
             for (var type : material.TOOLS.keySet()) {
                 var item = material.TOOLS.get(type).get();
+                tag(getTag("forge", "tools")).add(item);
                 tag(getTag("forge", "tools/" + type)).add(item);
                 tag(getTag("forge", "tools/" + type + "/" + material.name)).add(item);
                 for (var beProcessedMaterial : Material.values()) {
-                    if (material.strength >= beProcessedMaterial.strength)
-                        tag(getTag("moderntech", "tools/can_process_" + beProcessedMaterial.name)).add(item);
-                    else tag(getTag("moderntech", "tools/cannot_process_" + beProcessedMaterial.name)).add(item);
+                    if (material.strength >= beProcessedMaterial.strength) {
+                        tag(getTag(ModernTech.MODID, "tools/can_process_" + beProcessedMaterial.name)).add(item);
+                    } else tag(getTag(ModernTech.MODID, "tools/cannot_process_" + beProcessedMaterial.name)).add(item);
                 }
             }
         }
