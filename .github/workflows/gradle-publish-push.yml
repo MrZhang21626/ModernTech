@@ -17,8 +17,10 @@ jobs:
         uses: gradle/gradle-build-action@v2
       - name: Run build with Gradle wrapper
         run: ./gradlew build --scan
+        env:
+          VERSION: ${{ steps.version.outputs.result }}
       - name: Upload JAR file
         uses: actions/upload-artifact@v3
         with:
           name: ModernTech JAR
-          path: ./*/build/libs
+          path: ./build/libs

@@ -15,8 +15,12 @@ plugins {
 
 apply plugin: 'org.spongepowered.mixin'
 
+static def releaseTime() {
+    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08:00"))
+}
+
 group = 'com.mrzhang21626'
-version = '1.0-SNAPSHOT'
+version = releaseTime() + '-SNAPSHOT '
 
 java {
     archivesBaseName = 'ModernTech'
@@ -60,9 +64,9 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
-                        // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'moderntech'
-            
+
             mods {
                 moderntech {
                     source sourceSets.main
@@ -77,8 +81,8 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-                        property 'forge.enabledGameTestNamespaces', 'moderntech'
-            
+            property 'forge.enabledGameTestNamespaces', 'moderntech'
+
             mods {
                 moderntech {
                     source sourceSets.main
@@ -195,13 +199,13 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title": "moderntech",
-                            "Specification-Vendor": "MrZhang21626",
-                            "Specification-Version": "1", // We are version 1 of ourselves
-                "Implementation-Title": project.name,
-                "Implementation-Version": project.jar.archiveVersion,
-                            "Implementation-Vendor": "MrZhang21626",
-                            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : "moderntech",
+                "Specification-Vendor"    : "MrZhang21626",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "MrZhang21626",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
