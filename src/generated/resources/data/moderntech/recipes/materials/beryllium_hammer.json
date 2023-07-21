@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "## ",
+    "##-",
+    "## "
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:ingots/beryllium"
+    },
+    "-": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "moderntech:beryllium_hammer"
+  }
+}
