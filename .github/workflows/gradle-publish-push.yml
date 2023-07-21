@@ -1,7 +1,5 @@
-name: gradle-publish
-on:
-  schedule:
-    - cron: 0 0 * * *
+name: gradle-publish-push
+on: push
 jobs:
   gradle:
     runs-on: ubuntu-latest
