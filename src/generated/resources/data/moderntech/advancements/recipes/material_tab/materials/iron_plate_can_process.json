@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_ironplates": {
+    "has_ironingots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_ironplates",
+      "has_ironingots",
       "has_the_recipe"
     ]
   ]

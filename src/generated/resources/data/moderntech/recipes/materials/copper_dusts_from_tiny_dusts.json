@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:tiny_dusts/copper"
+    }
+  },
+  "result": {
+    "item": "moderntech:copper_dust"
+  }
+}

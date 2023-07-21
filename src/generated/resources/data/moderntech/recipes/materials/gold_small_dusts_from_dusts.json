@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/gold"
+    }
+  ],
+  "result": {
+    "item": "moderntech:gold_small_dust",
+    "count": 4
+  }
+}

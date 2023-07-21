@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_goldplates": {
+    "has_goldingots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_goldplates",
+      "has_goldingots",
       "has_the_recipe"
     ]
   ]

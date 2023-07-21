@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "moderntech:materials/copper_plate_can_process"
+      "moderntech:materials/iron_small_dusts_from_dusts"
     ]
   },
   "criteria": {
-    "has_copperingots": {
+    "has_iron_dusts": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/copper"
+            "tag": "forge:dusts/iron"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moderntech:materials/copper_plate_can_process"
+        "recipe": "moderntech:materials/iron_small_dusts_from_dusts"
       }
     }
   },
   "requirements": [
     [
-      "has_copperingots",
+      "has_iron_dusts",
       "has_the_recipe"
     ]
   ]

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/copper"
+    }
+  ],
+  "result": {
+    "item": "moderntech:copper_small_dust",
+    "count": 4
+  }
+}
