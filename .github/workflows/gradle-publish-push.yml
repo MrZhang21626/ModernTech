@@ -4,8 +4,7 @@ jobs:
   gradle:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
+      contents: write
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v3
