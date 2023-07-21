@@ -1,10 +1,13 @@
-name: gradle-publish-nightly
+name: ModernTech Nightly
 on:
   schedule:
     - cron: 0 0 * * *
 jobs:
   gradle:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v3

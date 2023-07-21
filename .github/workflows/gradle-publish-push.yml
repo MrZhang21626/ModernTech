@@ -1,8 +1,11 @@
-name: gradle-publish-push
+name: ModernTech Push
 on: push
 jobs:
   gradle:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v3
