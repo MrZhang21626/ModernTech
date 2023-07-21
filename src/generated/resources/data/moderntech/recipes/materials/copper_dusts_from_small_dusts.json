@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moderntech:copper_small_dust"
+    }
+  },
+  "result": {
+    "item": "moderntech:copper_dust"
+  }
+}

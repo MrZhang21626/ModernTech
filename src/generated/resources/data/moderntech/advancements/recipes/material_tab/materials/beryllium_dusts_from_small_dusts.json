@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:materials/beryllium_dusts_from_small_dusts"
+    ]
+  },
+  "criteria": {
+    "has_beryllium_small_dusts": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:small_dusts/beryllium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:materials/beryllium_dusts_from_small_dusts"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beryllium_small_dusts",
+      "has_the_recipe"
+    ]
+  ]
+}

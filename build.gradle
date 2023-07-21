@@ -20,7 +20,7 @@ static def releaseTime() {
 }
 
 group = 'com.mrzhang21626'
-version = releaseTime() + '-SNAPSHOT '
+version = releaseTime() + '-SNAPSHOT'
 
 java {
     archivesBaseName = 'ModernTech'

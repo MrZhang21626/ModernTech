@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moderntech:beryllium_dust"
+    }
+  ],
+  "result": {
+    "item": "moderntech:beryllium_small_dust",
+    "count": 4
+  }
+}
