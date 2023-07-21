@@ -28,7 +28,7 @@ public class ItemModelGenerator extends ItemModelProvider {
             }
             if (material.hasBlock) {
                 switch (material) {
-                    case IRON, COPPER -> {
+                    case IRON, COPPER, GOLD -> {
                     }
                     default -> withExistingParent(name(material.block.getBlockItem()),
                             modLoc("block/" + name(material.block.getBlockItem())));
@@ -37,11 +37,15 @@ public class ItemModelGenerator extends ItemModelProvider {
             }
             for (var type : material.TOOLS.keySet()) {
                 var item = material.TOOLS.get(type).get();
-                if (type.equals("hammers")) {
-                    withExistingParent(name(item), GENERATED)
+                switch (type) {
+                    case "hammers" -> withExistingParent(name(item), GENERATED)
                             .texture("layer0", modLoc("item/tools/hammer"))
                             .texture("layer1", modLoc("item/tools/handle_hammer"));
+                    case "files" -> withExistingParent(name(item), GENERATED)
+                                    .texture("layer0", modLoc("item/tools/file"))
+                                    .texture("layer1", modLoc("item/tools/handle_file"));
                 }
+
             }
         }
     }

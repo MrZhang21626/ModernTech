@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "moderntech:beryllium_file",
     "moderntech:beryllium_hammer"
   ]
 }

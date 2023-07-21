@@ -17,7 +17,7 @@ public class BlockModelGenerator extends BlockStateProvider {
         for (var material : Material.values()) {
             if (material.hasBlock) {
                 switch (material) {
-                    case COPPER, IRON -> {
+                    case COPPER, IRON, GOLD -> {
                     }
                     default -> simpleBlock(material.block.getBlock(), models().cubeAll(material.name + "_block",
                             modLoc("block/material/" + material.name + "_block")));

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:materials/gold_plate_can_process"
+    ]
+  },
+  "criteria": {
+    "has_goldplates": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:materials/gold_plate_can_process"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_goldplates",
+      "has_the_recipe"
+    ]
+  ]
+}

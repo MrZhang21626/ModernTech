@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:materials/iron_plate_can_process"
+    ]
+  },
+  "criteria": {
+    "has_ironplates": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:materials/iron_plate_can_process"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ironplates",
+      "has_the_recipe"
+    ]
+  ]
+}

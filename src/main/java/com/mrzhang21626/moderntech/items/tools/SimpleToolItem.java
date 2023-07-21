@@ -4,8 +4,8 @@ import com.mrzhang21626.moderntech.ModernTech;
 import com.mrzhang21626.moderntech.items.BaseItem;
 import net.minecraft.world.item.ItemStack;
 
-public class HammerItem extends BaseItem {
-    public HammerItem(int durability, String tooltip) {
+public class SimpleToolItem extends BaseItem {
+    public SimpleToolItem(int durability, String tooltip) {
         super(new Properties().stacksTo(1).durability(durability).tab(ModernTech.TOOL_TAB), ModernTech.TOOL_TAB, tooltip);
     }
 

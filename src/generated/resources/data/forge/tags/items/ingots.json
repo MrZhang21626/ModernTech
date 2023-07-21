@@ -3,6 +3,7 @@
   "values": [
     "moderntech:beryllium_ingot",
     "minecraft:iron_ingot",
-    "minecraft:copper_ingot"
+    "minecraft:copper_ingot",
+    "minecraft:gold_ingot"
   ]
 }

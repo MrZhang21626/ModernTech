@@ -38,9 +38,33 @@ public class ModernTech {
         @Override
         public void fillItemList(@NotNull NonNullList<ItemStack> stacks) {
             for (var material : Material.values()) {
-                for (var type : material.ITEMS.keySet()) {
-                    var item = material.ITEMS.get(type).get();
-                    stacks.add(new ItemStack(item));
+                if (material.hasBlock) {
+                    stacks.add(new ItemStack(material.block.getBlockItem()));
+                }
+                if (material.hasIngot) {
+                    stacks.add(new ItemStack(material.ITEMS.get("ingots").get()));
+                }
+                if (material.hasNugget) {
+                    stacks.add(new ItemStack(material.ITEMS.get("nuggets").get()));
+                }
+                if (material.hasPlate) {
+                    stacks.add(new ItemStack(material.ITEMS.get("plates").get()));
+                }
+                if (material.hasDustSeries) {
+                    stacks.add(new ItemStack(material.ITEMS.get("dusts").get()));
+                    stacks.add(new ItemStack(material.ITEMS.get("small_dusts").get()));
+                    stacks.add(new ItemStack(material.ITEMS.get("tiny_dusts").get()));
+                }
+                if (material.hasRod) {
+                    stacks.add(new ItemStack(material.ITEMS.get("rods").get()));
+                }
+                if (material.hasBoltAndScrew) {
+                    stacks.add(new ItemStack(material.ITEMS.get("bolts").get()));
+                    stacks.add(new ItemStack(material.ITEMS.get("screws").get()));
+                }
+                if (material.hasGearSeries) {
+                    stacks.add(new ItemStack(material.ITEMS.get("gears").get()));
+                    stacks.add(new ItemStack(material.ITEMS.get("small_gears").get()));
                 }
             }
         }
@@ -50,6 +74,18 @@ public class ModernTech {
         @Nonnull
         public ItemStack makeIcon() {
             return new ItemStack(Items.IRON_PICKAXE);
+        }
+
+        @Override
+        public void fillItemList(@NotNull NonNullList<ItemStack> stacks) {
+            String[] types = new String[]{"hammers", "files"};
+            for (var type : types) {
+                for (var material : Material.values()) {
+                    if (material.hasTools) {
+                        stacks.add(new ItemStack(material.TOOLS.get(type).get()));
+                    }
+                }
+            }
         }
     };
 
@@ -78,42 +114,22 @@ public class ModernTech {
         }
 
         public static String getTextureName(String type) {
-            switch (type) {
-                case "bolts" -> {
-                    return "bolt";
-                }
-                case "dusts" -> {
-                    return "dust";
-                }
-                case "gears" -> {
-                    return "gear";
-                }
-                case "ingots" -> {
-                    return "ingot";
-                }
-                case "nuggets" -> {
-                    return "nugget";
-                }
-                case "plates" -> {
-                    return "plate";
-                }
-                case "rods" -> {
-                    return "rod";
-                }
-                case "screws" -> {
-                    return "screw";
-                }
-                case "small_dusts" -> {
-                    return "small_dust";
-                }
-                case "small_gears" -> {
-                    return "small_gear";
-                }
-                case "tiny_dusts" -> {
-                    return "tiny_dust";
-                }
-            }
-            return "";
+            return switch (type) {
+                case "bolts" -> "bolt";
+                case "dusts" -> "dust";
+                case "gears" -> "gear";
+                case "ingots" -> "ingot";
+                case "nuggets" -> "nugget";
+                case "plates" -> "plate";
+                case "rods" -> "rod";
+                case "screws" -> "screw";
+                case "small_dusts" -> "small_dust";
+                case "small_gears" -> "small_gear";
+                case "tiny_dusts" -> "tiny_dust";
+                case "hammers" -> "hammer";
+                case "files" -> "file";
+                default -> "";
+            };
         }
 
         public static String toUpper(String s) {

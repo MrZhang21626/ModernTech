@@ -3,6 +3,7 @@
   "values": [
     "moderntech:beryllium_plate",
     "moderntech:iron_plate",
-    "moderntech:copper_plate"
+    "moderntech:copper_plate",
+    "moderntech:gold_plate"
   ]
 }

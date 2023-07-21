@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "moderntech:tools/can_process_beryllium"
+    },
+    {
+      "tag": "forge:ingots/beryllium"
+    }
+  ],
+  "result": {
+    "item": "moderntech:beryllium_plate"
+  }
+}

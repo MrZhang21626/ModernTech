@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:materials/beryllium_plate_can_process"
+    ]
+  },
+  "criteria": {
+    "has_berylliumplates": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/beryllium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:materials/beryllium_plate_can_process"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_berylliumplates",
+      "has_the_recipe"
+    ]
+  ]
+}

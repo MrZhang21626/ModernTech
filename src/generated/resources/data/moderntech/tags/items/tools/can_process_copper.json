@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "moderntech:beryllium_file",
+    "moderntech:beryllium_hammer",
+    "moderntech:iron_file",
+    "moderntech:iron_hammer",
+    "moderntech:copper_file",
+    "moderntech:copper_hammer",
+    "moderntech:gold_file",
+    "moderntech:gold_hammer"
+  ]
+}

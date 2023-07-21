@@ -21,17 +21,12 @@ public class RecipeGenerator extends RecipeProvider {
         for (var material : Material.values()) {
             if (material.hasIngot && material.hasPlate) {
                 var plate = material.ITEMS.get("plates").get();
-                var ingot = material.ITEMS.get("ingots").get();
                 ShapelessRecipeBuilder.shapeless(plate)
                         .requires(ItemTags.create(new ResourceLocation("moderntech", "tools/can_process_" + material.name)))
                         .requires(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name)))
                         .unlockedBy("has_" + material.name + "plates", has(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
                         .save(consumer, new ResourceLocation("moderntech", "materials/" + material.name + "_plate_can_process"));
-                ShapelessRecipeBuilder.shapeless(ingot)
-                        .requires(ItemTags.create(new ResourceLocation("moderntech", "tools/cannot_process_" + material.name)))
-                        .requires(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name)))
-                        .unlockedBy("has_" + material.name + "plates", has(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
-                        .save(consumer, new ResourceLocation("moderntech", "materials/" + material.name + "_plate_cannot_process"));
+
             }
         }
     }

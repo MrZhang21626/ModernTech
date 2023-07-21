@@ -3,7 +3,7 @@ package com.mrzhang21626.moderntech.registries;
 import com.mrzhang21626.moderntech.ModernTech;
 import com.mrzhang21626.moderntech.items.BaseBlockItem;
 import com.mrzhang21626.moderntech.items.BaseItem;
-import com.mrzhang21626.moderntech.items.tools.HammerItem;
+import com.mrzhang21626.moderntech.items.tools.SimpleToolItem;
 import com.mrzhang21626.moderntech.materials.Material;
 import com.mrzhang21626.moderntech.registries.registration.ItemRegistration;
 import net.minecraft.world.item.BlockItem;
@@ -27,12 +27,14 @@ public class RegistryItems {
                 switch (material) {
                     case IRON -> material.ITEMS.put("ingots", new ItemRegistration(Items.IRON_INGOT));
                     case COPPER -> material.ITEMS.put("ingots", new ItemRegistration(Items.COPPER_INGOT));
+                    case GOLD -> material.ITEMS.put("ingots", new ItemRegistration(Items.GOLD_INGOT));
                     default -> material.ITEMS.put("ingots", getMaterialItem(material.name, "ingot", material.formula));
                 }
             }
             if (material.hasNugget) {
                 switch (material) {
                     case IRON -> material.ITEMS.put("nuggets", new ItemRegistration(Items.IRON_NUGGET));
+                    case GOLD -> material.ITEMS.put("nuggets", new ItemRegistration(Items.GOLD_NUGGET));
                     default ->
                             material.ITEMS.put("nuggets", getMaterialItem(material.name, "nugget", material.formula));
                 }
@@ -49,6 +51,7 @@ public class RegistryItems {
                 switch (material) {
                     case IRON -> material.block.setBlockItem((BlockItem) Items.IRON_BLOCK);
                     case COPPER -> material.block.setBlockItem((BlockItem) Items.COPPER_BLOCK);
+                    case GOLD -> material.block.setBlockItem((BlockItem) Items.GOLD_BLOCK);
                     default -> material.block.setBlockItem(ITEMS.register(material.name + "_block",
                             () -> new BaseBlockItem(material.block.getBlock(), ModernTech.MATERIAL_TAB, material.formula)));
                 }
@@ -66,7 +69,9 @@ public class RegistryItems {
             }
             if (material.hasTools) {
                 material.TOOLS.put("hammers", new ItemRegistration(ITEMS.register(material.name + "_hammer",
-                        () -> new HammerItem(material.durability, material.formula))));
+                        () -> new SimpleToolItem(material.durability, material.formula))));
+                material.TOOLS.put("files", new ItemRegistration(ITEMS.register(material.name + "_file",
+                        () -> new SimpleToolItem(material.durability, material.formula))));
             }
         }
     }

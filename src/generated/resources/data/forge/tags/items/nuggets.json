@@ -3,6 +3,7 @@
   "values": [
     "moderntech:beryllium_nugget",
     "minecraft:iron_nugget",
-    "moderntech:copper_nugget"
+    "moderntech:copper_nugget",
+    "minecraft:gold_nugget"
   ]
 }

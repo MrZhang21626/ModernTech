@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:materials/copper_plate_can_process"
+    ]
+  },
+  "criteria": {
+    "has_copperplates": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/copper"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:materials/copper_plate_can_process"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_copperplates",
+      "has_the_recipe"
+    ]
+  ]
+}

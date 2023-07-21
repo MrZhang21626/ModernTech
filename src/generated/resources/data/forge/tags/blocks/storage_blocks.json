@@ -3,6 +3,7 @@
   "values": [
     "moderntech:beryllium_block",
     "minecraft:iron_block",
-    "minecraft:copper_block"
+    "minecraft:copper_block",
+    "minecraft:gold_block"
   ]
 }

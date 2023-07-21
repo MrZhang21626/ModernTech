@@ -34,7 +34,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
                 for (var beProcessedMaterial : Material.values()) {
                     if (material.strength >= beProcessedMaterial.strength) {
                         tag(getTag(ModernTech.MODID, "tools/can_process_" + beProcessedMaterial.name)).add(item);
-                    } else tag(getTag(ModernTech.MODID, "tools/cannot_process_" + beProcessedMaterial.name)).add(item);
+                    } //tag(getTag(ModernTech.MODID, "tools/cannot_process_" + beProcessedMaterial.name)).add(item);
                 }
             }
         }
