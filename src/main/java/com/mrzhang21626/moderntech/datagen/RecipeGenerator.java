@@ -23,14 +23,60 @@ public class RecipeGenerator extends RecipeProvider {
         for (var material : Material.values()) {
             if (material.hasIngot && material.hasPlate) {
                 var plate = material.ITEMS.get("plates").get();
-                ShapelessRecipeBuilder.shapeless(plate)
-                        .requires(ItemTags.create(new ResourceLocation("moderntech",
-                                "tools/hammers/can_process_" + material.name)))
+                ShapedRecipeBuilder.shaped(plate)
+                        .pattern("H")
+                        .pattern("#")
+                        .pattern("#")
+                        .define('H', ItemTags.create(new ResourceLocation("moderntech", "tools/hammers/can_process_" + material.name)))
+                        .define('#', ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name)))
+                        .unlockedBy("has_" + material.name + "ingots",
+                                has(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name +
+                                "_plate"));
+
+            }
+            if (material.hasIngot && material.hasRod) {
+                var rod = material.ITEMS.get("rods").get();
+                ShapelessRecipeBuilder.shapeless(rod)
+                        .requires(ItemTags.create(new ResourceLocation("moderntech", "tools/files/can_process_" + material.name)))
                         .requires(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name)))
                         .unlockedBy("has_" + material.name + "ingots",
                                 has(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
-                        .save(consumer, new ResourceLocation("moderntech", "materials/" + material.name + "_plate_can_process"));
-
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "_rod"));
+            }
+            if (material.hasIngot && material.hasBlock) {
+                var ingot = material.ITEMS.get("ingots").get();
+                var block = material.block.getBlockItem();
+                ShapedRecipeBuilder.shaped(block)
+                        .pattern("###")
+                        .pattern("###")
+                        .pattern("###")
+                        .define('#', ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name)))
+                        .unlockedBy("has_" + material.name + "_ingots",
+                                has(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "_storage_blocks_from_ingots"));
+                ShapelessRecipeBuilder.shapeless(ingot, 9)
+                        .requires(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "storage_blocks/" + material.name))))
+                        .unlockedBy("has_" + material.name + "_blocks",
+                                has(ItemTags.create(new ResourceLocation("forge", "storage_blocks/" + material.name))))
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "_ingots_from_storage_blocks"));
+            }
+            if (material.hasIngot && material.hasNugget) {
+                var nugget = material.ITEMS.get("nuggets").get();
+                var ingot = material.ITEMS.get("ingots").get();
+                ShapedRecipeBuilder.shaped(ingot)
+                        .pattern("###")
+                        .pattern("###")
+                        .pattern("###")
+                        .define('#', ItemTags.create(new ResourceLocation("forge", "nuggets/" + material.name)))
+                        .unlockedBy("has_" + material.name + "_nuggets",
+                                has(ItemTags.create(new ResourceLocation("forge", "nuggets/" + material.name))))
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "_ingots_from_nuggets"));
+                ShapelessRecipeBuilder.shapeless(nugget, 9)
+                        .requires(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
+                        .unlockedBy("has_" + material.name + "_ingots",
+                                has(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "nuggets_from_ingots"));
             }
             if (material.hasDustSeries) {
                 var small_dust = material.ITEMS.get("small_dusts").get();
@@ -41,7 +87,7 @@ public class RecipeGenerator extends RecipeProvider {
                         .define('#', ItemTags.create(new ResourceLocation("forge", "small_dusts/" + material.name)))
                         .unlockedBy("has_" + material.name + "_small_dusts",
                                 has(ItemTags.create(new ResourceLocation("forge", "small_dusts/" + material.name))))
-                        .save(consumer, new ResourceLocation("moderntech", "materials/" + material.name + "_dusts_from_small_dusts"));
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "_dusts_from_small_dusts"));
                 ShapedRecipeBuilder.shaped(dust)
                         .pattern("###")
                         .pattern("###")
@@ -49,12 +95,12 @@ public class RecipeGenerator extends RecipeProvider {
                         .define('#', ItemTags.create(new ResourceLocation("forge", "tiny_dusts/" + material.name)))
                         .unlockedBy("has_" + material.name + "_tiny_dusts",
                                 has(ItemTags.create(new ResourceLocation("forge", "tiny_dusts/" + material.name))))
-                        .save(consumer, new ResourceLocation("moderntech", "materials/" + material.name + "_dusts_from_tiny_dusts"));
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "_dusts_from_tiny_dusts"));
                 ShapelessRecipeBuilder.shapeless(small_dust, 4)
                         .requires(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "dusts/" + material.name))))
                         .unlockedBy("has_" + material.name + "_dusts",
                                 has(ItemTags.create(new ResourceLocation("forge", "dusts/" + material.name))))
-                        .save(consumer, new ResourceLocation("moderntech", "materials/" + material.name + "_small_dusts_from_dusts"));
+                        .save(consumer, new ResourceLocation("moderntech", "crafting/materials/" + material.name + "_small_dusts_from_dusts"));
             }
             if (material.hasTools) {
                 if (material.hasIngot) {
@@ -67,7 +113,7 @@ public class RecipeGenerator extends RecipeProvider {
                             .define('-', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
                             .unlockedBy("has_" + material.name + "_ingots",
                                     has(ItemTags.create(new ResourceLocation("forge", "ingots/" + material.name))))
-                            .save(consumer, new ResourceLocation("moderntech", "tools/" + material.name + "_hammer"));
+                            .save(consumer, new ResourceLocation("moderntech", "crafting/tools/" + material.name + "_hammer"));
                     var file = material.TOOLS.get("files").get();
                     ShapedRecipeBuilder.shaped(file)
                             .pattern("H#")
@@ -77,7 +123,7 @@ public class RecipeGenerator extends RecipeProvider {
                             .define('/', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
                             .unlockedBy("has_" + material.name + "_ingots",
                                     has(ItemTags.create(new ResourceLocation("forge", "tool_heads/file_heads/" + material.name))))
-                            .save(consumer, new ResourceLocation("moderntech", "tools/" + material.name + "_file"));
+                            .save(consumer, new ResourceLocation("moderntech", "crafting/tools/" + material.name + "_file"));
                 }
             }
         }

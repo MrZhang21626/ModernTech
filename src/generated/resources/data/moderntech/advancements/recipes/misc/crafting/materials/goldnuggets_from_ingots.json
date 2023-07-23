@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/goldnuggets_from_ingots"
+    ]
+  },
+  "criteria": {
+    "has_gold_ingots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/goldnuggets_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gold_ingots",
+      "has_the_recipe"
+    ]
+  ]
+}

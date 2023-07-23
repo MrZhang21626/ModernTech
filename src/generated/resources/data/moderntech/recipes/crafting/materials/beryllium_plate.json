@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H",
+    "#",
+    "#"
+  ],
+  "key": {
+    "H": {
+      "tag": "moderntech:tools/hammers/can_process_beryllium"
+    },
+    "#": {
+      "tag": "forge:ingots/beryllium"
+    }
+  },
+  "result": {
+    "item": "moderntech:beryllium_plate"
+  }
+}

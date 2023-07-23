@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "moderntech:tools/files/can_process_gold"
+    },
+    {
+      "tag": "forge:ingots/gold"
+    }
+  ],
+  "result": {
+    "item": "moderntech:gold_rod"
+  }
+}

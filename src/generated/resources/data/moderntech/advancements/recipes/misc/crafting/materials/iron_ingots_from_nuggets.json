@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/iron_ingots_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "has_iron_nuggets": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/iron_ingots_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_iron_nuggets",
+      "has_the_recipe"
+    ]
+  ]
+}

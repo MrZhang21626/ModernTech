@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/copper_dusts_from_small_dusts"
+    ]
+  },
+  "criteria": {
+    "has_copper_small_dusts": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:small_dusts/copper"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/copper_dusts_from_small_dusts"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_copper_small_dusts",
+      "has_the_recipe"
+    ]
+  ]
+}

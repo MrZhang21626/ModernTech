@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/copper_storage_blocks_from_ingots"
+    ]
+  },
+  "criteria": {
+    "has_copper_ingots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/copper"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/copper_storage_blocks_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_copper_ingots",
+      "has_the_recipe"
+    ]
+  ]
+}

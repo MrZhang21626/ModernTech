@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/tools/copper_file"
+    ]
+  },
+  "criteria": {
+    "has_copper_ingots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:tool_heads/file_heads/copper"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/tools/copper_file"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_copper_ingots",
+      "has_the_recipe"
+    ]
+  ]
+}

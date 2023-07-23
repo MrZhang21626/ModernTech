@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "moderntech:tools/files/can_process_iron"
+    },
+    {
+      "tag": "forge:ingots/iron"
+    }
+  ],
+  "result": {
+    "item": "moderntech:iron_rod"
+  }
+}

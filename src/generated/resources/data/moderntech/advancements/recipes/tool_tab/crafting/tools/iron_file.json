@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/tools/iron_file"
+    ]
+  },
+  "criteria": {
+    "has_iron_ingots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:tool_heads/file_heads/iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/tools/iron_file"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_iron_ingots",
+      "has_the_recipe"
+    ]
+  ]
+}

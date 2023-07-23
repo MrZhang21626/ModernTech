@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/tools/gold_file"
+    ]
+  },
+  "criteria": {
+    "has_gold_ingots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:tool_heads/file_heads/gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/tools/gold_file"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gold_ingots",
+      "has_the_recipe"
+    ]
+  ]
+}

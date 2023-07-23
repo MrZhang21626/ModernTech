@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/iron_ingots_from_storage_blocks"
+    ]
+  },
+  "criteria": {
+    "has_iron_blocks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:storage_blocks/iron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/iron_ingots_from_storage_blocks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_iron_blocks",
+      "has_the_recipe"
+    ]
+  ]
+}

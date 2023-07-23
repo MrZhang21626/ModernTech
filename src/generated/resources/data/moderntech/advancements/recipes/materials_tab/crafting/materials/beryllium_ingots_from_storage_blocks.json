@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/beryllium_ingots_from_storage_blocks"
+    ]
+  },
+  "criteria": {
+    "has_beryllium_blocks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:storage_blocks/beryllium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/beryllium_ingots_from_storage_blocks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beryllium_blocks",
+      "has_the_recipe"
+    ]
+  ]
+}
