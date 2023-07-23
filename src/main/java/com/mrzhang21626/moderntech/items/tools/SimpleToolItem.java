@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class SimpleToolItem extends BaseItem {
     public SimpleToolItem(int durability, String tooltip) {
-        super(new Properties().stacksTo(1).durability(durability).tab(ModernTech.TOOL_TAB), ModernTech.TOOL_TAB, tooltip);
+        super(new Properties().stacksTo(1).durability(durability).tab(ModernTech.TOOLS_TAB), ModernTech.TOOLS_TAB, tooltip);
     }
 
     @Override

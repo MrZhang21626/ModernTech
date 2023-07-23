@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H#",
+    "/ "
+  ],
+  "key": {
+    "H": {
+      "tag": "moderntech:tools/hammers/can_process_iron"
+    },
+    "#": {
+      "tag": "forge:ingots/iron"
+    },
+    "/": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "moderntech:iron_file"
+  }
+}

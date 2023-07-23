@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "moderntech:tools/can_process_beryllium"
+      "tag": "moderntech:tools/hammers/can_process_beryllium"
     },
     {
       "tag": "forge:ingots/beryllium"

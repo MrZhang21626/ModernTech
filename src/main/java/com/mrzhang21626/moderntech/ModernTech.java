@@ -28,7 +28,7 @@ public class ModernTech {
             return new ItemStack(Items.COPPER_INGOT);
         }
     };
-    public static final CreativeModeTab MATERIAL_TAB = new CreativeModeTab("material_tab") {
+    public static final CreativeModeTab MATERIALS_TAB = new CreativeModeTab("materials_tab") {
         @Override
         @Nonnull
         public ItemStack makeIcon() {
@@ -69,11 +69,11 @@ public class ModernTech {
             }
         }
     };
-    public static final CreativeModeTab TOOL_TAB = new CreativeModeTab("tool_tab") {
+    public static final CreativeModeTab TOOLS_TAB = new CreativeModeTab("tool_tab") {
         @Override
         @Nonnull
         public ItemStack makeIcon() {
-            return new ItemStack(Items.IRON_PICKAXE);
+            return new ItemStack(Material.COPPER.TOOLS.get("hammers").get());
         }
 
         @Override
@@ -128,6 +128,7 @@ public class ModernTech {
                 case "tiny_dusts" -> "tiny_dust";
                 case "hammers" -> "hammer";
                 case "files" -> "file";
+                case "file_heads" -> "file_head";
                 default -> "";
             };
         }

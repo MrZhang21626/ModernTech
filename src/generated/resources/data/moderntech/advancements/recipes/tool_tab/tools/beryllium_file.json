@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "moderntech:materials/gold_hammer"
+      "moderntech:tools/beryllium_file"
     ]
   },
   "criteria": {
-    "has_gold_ingots": {
+    "has_beryllium_ingots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/gold"
+            "tag": "forge:tool_heads/file_heads/beryllium"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moderntech:materials/gold_hammer"
+        "recipe": "moderntech:tools/beryllium_file"
       }
     }
   },
   "requirements": [
     [
-      "has_gold_ingots",
+      "has_beryllium_ingots",
       "has_the_recipe"
     ]
   ]

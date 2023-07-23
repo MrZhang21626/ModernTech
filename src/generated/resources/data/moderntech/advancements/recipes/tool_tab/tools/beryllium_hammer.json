@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "moderntech:materials/copper_hammer"
+      "moderntech:tools/beryllium_hammer"
     ]
   },
   "criteria": {
-    "has_copper_ingots": {
+    "has_beryllium_ingots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/copper"
+            "tag": "forge:ingots/beryllium"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moderntech:materials/copper_hammer"
+        "recipe": "moderntech:tools/beryllium_hammer"
       }
     }
   },
   "requirements": [
     [
-      "has_copper_ingots",
+      "has_beryllium_ingots",
       "has_the_recipe"
     ]
   ]

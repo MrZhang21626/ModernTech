@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H#",
+    "/ "
+  ],
+  "key": {
+    "H": {
+      "tag": "moderntech:tools/hammers/can_process_gold"
+    },
+    "#": {
+      "tag": "forge:ingots/gold"
+    },
+    "/": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "moderntech:gold_file"
+  }
+}

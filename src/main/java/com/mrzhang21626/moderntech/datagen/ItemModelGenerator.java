@@ -42,10 +42,9 @@ public class ItemModelGenerator extends ItemModelProvider {
                             .texture("layer0", modLoc("item/tools/hammer"))
                             .texture("layer1", modLoc("item/tools/handle_hammer"));
                     case "files" -> withExistingParent(name(item), GENERATED)
-                                    .texture("layer0", modLoc("item/tools/file"))
-                                    .texture("layer1", modLoc("item/tools/handle_file"));
+                            .texture("layer0", modLoc("item/tools/file"))
+                            .texture("layer1", modLoc("item/tools/handle_file"));
                 }
-
             }
         }
     }

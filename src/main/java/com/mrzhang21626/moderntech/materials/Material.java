@@ -5,6 +5,7 @@ import com.mrzhang21626.moderntech.registries.registration.BlockRegistration;
 import com.mrzhang21626.moderntech.registries.registration.ItemRegistration;
 import net.minecraft.world.level.block.SoundType;
 
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +25,8 @@ public enum Material {
     public final Map<String, ItemRegistration> TOOLS = new HashMap<>();
     public BlockRegistration block;
 
-    Material(String name, String formula, int color, int durability, float strength, net.minecraft.world.level.material.Material material, SoundType sound,
+    Material(String name, String formula, int color, float strength, int durability,
+             net.minecraft.world.level.material.Material material, SoundType sound,
              boolean hasIngot, boolean hasNugget, boolean hasBlock, boolean hasPlate, boolean hasDustSeries, boolean hasRod,
              boolean hasBoltAndScrew, boolean hasGearSeries, boolean hasTools) {
         this.name = name;
@@ -45,8 +47,33 @@ public enum Material {
         this.hasTools = hasTools;
     }
 
+    Material(String name, String formula, int color, float strength, int durability,
+             net.minecraft.world.level.material.Material material, SoundType sound, String args) {
+        BitSet bitSet = new BitSet(9);
+        for (int i = 0; i < 9; i++) {
+            var arg = args.charAt(i);
+            if (arg == '1') bitSet.set(i);
+        }
+        this.name = name;
+        this.formula = ModernTech.Utils.formatFormula(formula);
+        this.color = color;
+        this.durability = durability;
+        this.strength = strength;
+        this.material = material;
+        this.sound = sound;
+        this.hasIngot = bitSet.get(0);
+        this.hasNugget = bitSet.get(1);
+        this.hasBlock = bitSet.get(2);
+        this.hasPlate = bitSet.get(3);
+        this.hasDustSeries = bitSet.get(4);
+        this.hasRod = bitSet.get(5);
+        this.hasBoltAndScrew = bitSet.get(6);
+        this.hasGearSeries = bitSet.get(7);
+        this.hasTools = bitSet.get(8);
+    }
+
     Material(String name, String formula, int color, float strength, int durability) {
-        this(name, formula, color, durability, strength, net.minecraft.world.level.material.Material.METAL, SoundType.METAL,
+        this(name, formula, color, strength, durability, net.minecraft.world.level.material.Material.METAL, SoundType.METAL,
                 true, true, true, true, true, true, true, true, true);
     }
 

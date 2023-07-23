@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H#",
+    "/ "
+  ],
+  "key": {
+    "H": {
+      "tag": "moderntech:tools/hammers/can_process_copper"
+    },
+    "#": {
+      "tag": "forge:ingots/copper"
+    },
+    "/": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "moderntech:copper_file"
+  }
+}

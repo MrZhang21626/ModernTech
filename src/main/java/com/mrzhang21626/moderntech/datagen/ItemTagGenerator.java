@@ -33,7 +33,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
                 tag(getTag("forge", "tools/" + type + "/" + material.name)).add(item);
                 for (var beProcessedMaterial : Material.values()) {
                     if (material.strength >= beProcessedMaterial.strength) {
-                        tag(getTag(ModernTech.MODID, "tools/can_process_" + beProcessedMaterial.name)).add(item);
+                        tag(getTag(ModernTech.MODID, "tools/" + type + "/" + "can_process_" + beProcessedMaterial.name)).add(item);
                     } //tag(getTag(ModernTech.MODID, "tools/cannot_process_" + beProcessedMaterial.name)).add(item);
                 }
             }

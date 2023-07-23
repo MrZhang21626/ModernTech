@@ -52,8 +52,8 @@ public class RegistryItems {
                     case IRON -> material.block.setBlockItem((BlockItem) Items.IRON_BLOCK);
                     case COPPER -> material.block.setBlockItem((BlockItem) Items.COPPER_BLOCK);
                     case GOLD -> material.block.setBlockItem((BlockItem) Items.GOLD_BLOCK);
-                    default -> material.block.setBlockItem(ITEMS.register(material.name + "_block",
-                            () -> new BaseBlockItem(material.block.getBlock(), ModernTech.MATERIAL_TAB, material.formula)));
+                    default ->
+                            material.block.setBlockItem(ITEMS.register(material.name + "_block", () -> new BaseBlockItem(material.block.getBlock(), ModernTech.MATERIALS_TAB, material.formula)));
                 }
             }
             if (material.hasRod) {
@@ -68,15 +68,13 @@ public class RegistryItems {
                 material.ITEMS.put("small_gears", getMaterialItem(material.name, "small_gear", material.formula));
             }
             if (material.hasTools) {
-                material.TOOLS.put("hammers", new ItemRegistration(ITEMS.register(material.name + "_hammer",
-                        () -> new SimpleToolItem(material.durability, material.formula))));
-                material.TOOLS.put("files", new ItemRegistration(ITEMS.register(material.name + "_file",
-                        () -> new SimpleToolItem(material.durability, material.formula))));
+                material.TOOLS.put("hammers", new ItemRegistration(ITEMS.register(material.name + "_hammer", () -> new SimpleToolItem(material.durability, material.formula))));
+                material.TOOLS.put("files", new ItemRegistration(ITEMS.register(material.name + "_file", () -> new SimpleToolItem(material.durability, material.formula))));
             }
         }
     }
 
     private static ItemRegistration getMaterialItem(String materialName, String type, String formula) {
-        return new ItemRegistration(ITEMS.register(materialName + "_" + type, () -> new BaseItem(ModernTech.MATERIAL_TAB, formula)));
+        return new ItemRegistration(ITEMS.register(materialName + "_" + type, () -> new BaseItem(ModernTech.MATERIALS_TAB, formula)));
     }
 }
