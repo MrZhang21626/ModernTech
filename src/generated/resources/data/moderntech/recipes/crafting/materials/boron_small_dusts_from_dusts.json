@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/boron"
+    }
+  ],
+  "result": {
+    "item": "moderntech:boron_small_dust",
+    "count": 4
+  }
+}

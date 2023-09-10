@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/boron_rod"
+    ]
+  },
+  "criteria": {
+    "has_boron_ingots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/boron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/boron_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_boron_ingots",
+      "has_the_recipe"
+    ]
+  ]
+}

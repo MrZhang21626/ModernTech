@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/boron_ingots_from_nuggets"
+    ]
+  },
+  "criteria": {
+    "has_boron_nuggets": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/boron"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/boron_ingots_from_nuggets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_boron_nuggets",
+      "has_the_recipe"
+    ]
+  ]
+}

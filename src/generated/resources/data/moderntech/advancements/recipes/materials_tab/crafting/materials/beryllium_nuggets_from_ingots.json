@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moderntech:crafting/materials/beryllium_nuggets_from_ingots"
+    ]
+  },
+  "criteria": {
+    "has_beryllium_ingots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/beryllium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moderntech:crafting/materials/beryllium_nuggets_from_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beryllium_ingots",
+      "has_the_recipe"
+    ]
+  ]
+}

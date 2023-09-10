@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moderntech:item/tools/file",
+    "layer1": "moderntech:item/tools/handle_file"
+  }
+}

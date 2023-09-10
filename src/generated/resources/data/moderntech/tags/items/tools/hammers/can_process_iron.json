@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "moderntech:beryllium_hammer",
-    "moderntech:iron_hammer"
+    "moderntech:iron_hammer",
+    "moderntech:boron_hammer"
   ]
 }

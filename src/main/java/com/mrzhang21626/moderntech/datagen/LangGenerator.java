@@ -26,8 +26,8 @@ public class LangGenerator extends LanguageProvider {
                 });
             }
             if (material.hasBlock) {
-                switch (material) {
-                    case COPPER, IRON, GOLD -> {
+                switch (material.name) {
+                    case "iron", "copper", "gold" -> {
                     }
                     default -> {
                         var block = material.block.getBlock();
@@ -46,10 +46,10 @@ public class LangGenerator extends LanguageProvider {
         var names = id.split("_");
         StringBuilder stringBuilder = new StringBuilder();
         for (var str : names) {
-            stringBuilder.append(switch (str) {
-                case "of" -> str;
-                default -> ModernTech.Utils.toUpper(str);
-            });
+            if (Objects.equals(str, "of"))
+                stringBuilder.append("of");
+            else
+                stringBuilder.append(ModernTech.Utils.toUpper(str));
             stringBuilder.append(' ');
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);

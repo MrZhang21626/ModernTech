@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
+    "moderntech:gold_rod",
     "moderntech:beryllium_rod",
     "moderntech:iron_rod",
     "moderntech:copper_rod",
-    "moderntech:gold_rod"
+    "moderntech:boron_rod"
   ]
 }

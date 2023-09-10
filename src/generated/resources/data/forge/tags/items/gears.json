@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
+    "moderntech:gold_gear",
     "moderntech:beryllium_gear",
     "moderntech:iron_gear",
     "moderntech:copper_gear",
-    "moderntech:gold_gear"
+    "moderntech:boron_gear"
   ]
 }

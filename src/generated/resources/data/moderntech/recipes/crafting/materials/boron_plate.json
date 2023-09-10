@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H",
+    "#",
+    "#"
+  ],
+  "key": {
+    "H": {
+      "tag": "moderntech:tools/hammers/can_process_boron"
+    },
+    "#": {
+      "tag": "forge:ingots/boron"
+    }
+  },
+  "result": {
+    "item": "moderntech:boron_plate"
+  }
+}

@@ -27,8 +27,8 @@ public class ItemModelGenerator extends ItemModelProvider {
                 generatedItem(name(item), modLoc("item/material/" + ModernTech.Utils.getTextureName(type)));
             }
             if (material.hasBlock) {
-                switch (material) {
-                    case IRON, COPPER, GOLD -> {
+                switch (material.name) {
+                    case "iron", "copper", "gold" -> {
                     }
                     default -> withExistingParent(name(material.block.getBlockItem()),
                             modLoc("block/" + name(material.block.getBlockItem())));

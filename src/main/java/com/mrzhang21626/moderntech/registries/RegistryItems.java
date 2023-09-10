@@ -24,17 +24,17 @@ public class RegistryItems {
     private static void registryMaterialItems() {
         for (var material : Material.values()) {
             if (material.hasIngot) {
-                switch (material) {
-                    case IRON -> material.ITEMS.put("ingots", new ItemRegistration(Items.IRON_INGOT));
-                    case COPPER -> material.ITEMS.put("ingots", new ItemRegistration(Items.COPPER_INGOT));
-                    case GOLD -> material.ITEMS.put("ingots", new ItemRegistration(Items.GOLD_INGOT));
+                switch (material.name) {
+                    case "iron" -> material.ITEMS.put("ingots", new ItemRegistration(Items.IRON_INGOT));
+                    case "copper" -> material.ITEMS.put("ingots", new ItemRegistration(Items.COPPER_INGOT));
+                    case "gold" -> material.ITEMS.put("ingots", new ItemRegistration(Items.GOLD_INGOT));
                     default -> material.ITEMS.put("ingots", getMaterialItem(material.name, "ingot", material.formula));
                 }
             }
             if (material.hasNugget) {
-                switch (material) {
-                    case IRON -> material.ITEMS.put("nuggets", new ItemRegistration(Items.IRON_NUGGET));
-                    case GOLD -> material.ITEMS.put("nuggets", new ItemRegistration(Items.GOLD_NUGGET));
+                switch (material.name) {
+                    case "iron" -> material.ITEMS.put("nuggets", new ItemRegistration(Items.IRON_NUGGET));
+                    case "gold" -> material.ITEMS.put("nuggets", new ItemRegistration(Items.GOLD_NUGGET));
                     default ->
                             material.ITEMS.put("nuggets", getMaterialItem(material.name, "nugget", material.formula));
                 }
@@ -48,10 +48,10 @@ public class RegistryItems {
                 material.ITEMS.put("tiny_dusts", getMaterialItem(material.name, "tiny_dust", material.formula));
             }
             if (material.hasBlock) {
-                switch (material) {
-                    case IRON -> material.block.setBlockItem((BlockItem) Items.IRON_BLOCK);
-                    case COPPER -> material.block.setBlockItem((BlockItem) Items.COPPER_BLOCK);
-                    case GOLD -> material.block.setBlockItem((BlockItem) Items.GOLD_BLOCK);
+                switch (material.name) {
+                    case "iron" -> material.block.setBlockItem((BlockItem) Items.IRON_BLOCK);
+                    case "copper" -> material.block.setBlockItem((BlockItem) Items.COPPER_BLOCK);
+                    case "gold" -> material.block.setBlockItem((BlockItem) Items.GOLD_BLOCK);
                     default ->
                             material.block.setBlockItem(ITEMS.register(material.name + "_block", () -> new BaseBlockItem(material.block.getBlock(), ModernTech.MATERIALS_TAB, material.formula)));
                 }

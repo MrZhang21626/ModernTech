@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.mrzhang21626.moderntech.materials.Material;
 import com.mrzhang21626.moderntech.registries.RegistryBlocks;
 import com.mrzhang21626.moderntech.registries.RegistryItems;
+import com.mrzhang21626.moderntech.registries.RegistryMaterials;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -32,7 +33,7 @@ public class ModernTech {
         @Override
         @Nonnull
         public ItemStack makeIcon() {
-            return new ItemStack(Material.BERYLLIUM.ITEMS.get("ingots").get());
+            return new ItemStack(Material.get("beryllium").ITEMS.get("ingots").get());
         }
 
         @Override
@@ -73,7 +74,7 @@ public class ModernTech {
         @Override
         @Nonnull
         public ItemStack makeIcon() {
-            return new ItemStack(Material.COPPER.TOOLS.get("hammers").get());
+            return new ItemStack(Material.get("beryllium").TOOLS.get("hammers").get());
         }
 
         @Override
@@ -90,6 +91,7 @@ public class ModernTech {
     };
 
     public ModernTech() {
+        RegistryMaterials.init();
         RegistryBlocks.init();
         RegistryItems.init();
     }

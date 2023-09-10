@@ -25,8 +25,5 @@ public class DataGenEvent {
             generator.addProvider(new RecipeGenerator(generator));
             generator.addProvider(new LangGenerator(generator));
         }
-        if (event.includeReports()) {
-
-        }
     }
 }

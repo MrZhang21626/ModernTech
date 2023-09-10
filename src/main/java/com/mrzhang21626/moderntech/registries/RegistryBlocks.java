@@ -20,10 +20,10 @@ public class RegistryBlocks {
     private static void registryMaterialBlocks() {
         for (var material : Material.values()) {
             if (material.hasBlock) {
-                switch (material) {
-                    case IRON -> material.block = new BlockRegistration(Blocks.IRON_BLOCK);
-                    case COPPER -> material.block = new BlockRegistration(Blocks.COPPER_BLOCK);
-                    case GOLD -> material.block = new BlockRegistration(Blocks.GOLD_BLOCK);
+                switch (material.name) {
+                    case "iron" -> material.block = new BlockRegistration(Blocks.IRON_BLOCK);
+                    case "copper" -> material.block = new BlockRegistration(Blocks.COPPER_BLOCK);
+                    case "gold" -> material.block = new BlockRegistration(Blocks.GOLD_BLOCK);
                     default -> material.block = new BlockRegistration(BLOCKS.register(material.name + "_block",
                             () -> new BaseBlock(material.material, material.sound, material.strength)));
                 }

@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
+    "moderntech:gold_file",
     "moderntech:beryllium_file",
     "moderntech:iron_file",
     "moderntech:copper_file",
-    "moderntech:gold_file"
+    "moderntech:boron_file"
   ]
 }

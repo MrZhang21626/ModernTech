@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
+    "minecraft:gold_ingot",
     "moderntech:beryllium_ingot",
     "minecraft:iron_ingot",
     "minecraft:copper_ingot",
-    "minecraft:gold_ingot"
+    "moderntech:boron_ingot"
   ]
 }

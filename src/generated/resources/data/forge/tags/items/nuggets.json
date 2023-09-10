@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
+    "minecraft:gold_nugget",
     "moderntech:beryllium_nugget",
     "minecraft:iron_nugget",
     "moderntech:copper_nugget",
-    "minecraft:gold_nugget"
+    "moderntech:boron_nugget"
   ]
 }

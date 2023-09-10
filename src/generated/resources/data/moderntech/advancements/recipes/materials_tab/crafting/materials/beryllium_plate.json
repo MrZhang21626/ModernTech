@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_berylliumingots": {
+    "has_beryllium_ingots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_berylliumingots",
+      "has_beryllium_ingots",
       "has_the_recipe"
     ]
   ]

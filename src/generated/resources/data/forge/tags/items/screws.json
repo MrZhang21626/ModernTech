@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
+    "moderntech:gold_screw",
     "moderntech:beryllium_screw",
     "moderntech:iron_screw",
     "moderntech:copper_screw",
-    "moderntech:gold_screw"
+    "moderntech:boron_screw"
   ]
 }
