@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.datagen;
+package com.mrzhang21626.moderntech.datagen.recipe;
 
 import com.mrzhang21626.moderntech.materials.Material;
 import net.minecraft.data.DataGenerator;

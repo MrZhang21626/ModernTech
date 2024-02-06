@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.datagen;
+package com.mrzhang21626.moderntech.datagen.lang;
 
 import com.mrzhang21626.moderntech.ModernTech;
 import com.mrzhang21626.moderntech.materials.Material;
@@ -17,7 +17,7 @@ public class LangGenerator extends LanguageProvider {
         for (var material : Material.values()) {
             for (var type : material.ITEMS.keySet()) {
                 var item = material.ITEMS.get(type).get();
-
+                if (item.getRegistryName().getNamespace().equals("minecraft")) continue;
                 add(item, switch (type) {
                     case "small_dusts" -> toDisplayName("small_pile_of_" + material.name + "_dust");
                     case "tiny_dusts" -> toDisplayName("tiny_pile_of_" + material.name + "_dust");

@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.datagen;
+package com.mrzhang21626.moderntech.datagen.model;
 
 import com.mrzhang21626.moderntech.ModernTech;
 import com.mrzhang21626.moderntech.materials.Material;
@@ -17,8 +17,7 @@ public class BlockModelGenerator extends BlockStateProvider {
         for (var material : Material.values()) {
             if (material.hasBlock) {
                 switch (material.name) {
-                    case "iron", "copper", "gold" -> {
-                    }
+                    case "iron", "copper", "gold" -> {}
                     default -> simpleBlock(material.block.getBlock(), models().cubeAll(material.name + "_block",
                             modLoc("block/material/" + material.name + "_block")));
                 }

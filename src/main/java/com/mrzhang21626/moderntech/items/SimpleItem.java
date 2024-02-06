@@ -13,47 +13,47 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class BaseItem extends Item {
+public class SimpleItem extends Item {
     String tooltip = "";
     ChatFormatting chatFormatting;
 
-    public BaseItem(Properties properties) {
+    public SimpleItem(Properties properties) {
         super(properties);
     }
 
-    public BaseItem(Properties properties, CreativeModeTab tab) {
+    public SimpleItem(Properties properties, CreativeModeTab tab) {
         this(properties.tab(tab));
     }
 
-    public BaseItem(Properties properties, CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
+    public SimpleItem(Properties properties, CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
         this(properties, tab);
         this.tooltip = tooltip;
         this.chatFormatting = chatFormatting;
     }
 
-    public BaseItem(Properties properties, String tooltip, ChatFormatting chatFormatting) {
+    public SimpleItem(Properties properties, String tooltip, ChatFormatting chatFormatting) {
         this(properties);
         this.tooltip = tooltip;
         this.chatFormatting = chatFormatting;
     }
 
-    public BaseItem(Properties properties, CreativeModeTab tab, String tooltip) {
+    public SimpleItem(Properties properties, CreativeModeTab tab, String tooltip) {
         this(properties, tab, tooltip, ChatFormatting.GRAY);
     }
 
-    public BaseItem(CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
+    public SimpleItem(CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
         this(new Properties(), tab, tooltip, chatFormatting);
     }
 
-    public BaseItem(String tooltip, ChatFormatting chatFormatting) {
+    public SimpleItem(String tooltip, ChatFormatting chatFormatting) {
         this(new Properties(), tooltip, chatFormatting);
     }
 
-    public BaseItem(CreativeModeTab tab, String tooltip) {
+    public SimpleItem(CreativeModeTab tab, String tooltip) {
         this(new Properties(), tab, tooltip);
     }
 
-    public BaseItem(String tooltip) {
+    public SimpleItem(String tooltip) {
         this(new Properties(), tooltip, ChatFormatting.GRAY);
     }
 

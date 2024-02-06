@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.datagen;
+package com.mrzhang21626.moderntech.datagen.tag;
 
 import com.mrzhang21626.moderntech.ModernTech;
 import com.mrzhang21626.moderntech.materials.Material;

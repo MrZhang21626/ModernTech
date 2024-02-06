@@ -3,6 +3,7 @@ package com.mrzhang21626.moderntech.materials;
 import com.mrzhang21626.moderntech.ModernTech;
 import com.mrzhang21626.moderntech.registries.registration.BlockRegistration;
 import com.mrzhang21626.moderntech.registries.registration.ItemRegistration;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.SoundType;
 
 import java.util.HashMap;
@@ -21,12 +22,15 @@ public class Material {
     public final Map<String, ItemRegistration> ITEMS = new HashMap<>();
     public final Map<String, ItemRegistration> TOOLS = new HashMap<>();
     public BlockRegistration block;
+    public final MaterialTier.TierProperties tierProperties;
+    public Tier tier = null;
 
     public Material(Properties properties) {
         this.name = properties.name;
         this.formula = ModernTech.Utils.formatFormula(properties.formula);
         this.color = properties.color;
-        this.durability = properties.durability;
+        this.tierProperties = properties.tierProperties;
+        this.durability = this.tierProperties.getUses();
         this.strength = properties.strength;
         this.material = properties.material;
         this.sound = properties.sound;
@@ -58,25 +62,33 @@ public class Material {
         private String name;
         private String formula;
 
-        private int color, durability;
+        private int color;
         private float strength;
         private net.minecraft.world.level.material.Material material;
         private SoundType sound;
         private boolean hasIngot, hasNugget, hasBlock, hasPlate, hasDustSeries, hasRod, hasBoltAndScrew,
                 hasGearSeries, hasTools;
+        private MaterialTier.TierProperties tierProperties = null;
 
-        Properties(String name) {
+        public Properties(String name, MaterialTier.TierProperties tierProperties) {
             this.name = name;
             formula = "";
-            color = durability = 0;
+            color = 0;
+            strength = 0;
+            material = net.minecraft.world.level.material.Material.METAL;
+            sound = SoundType.METAL;
+            this.tierProperties = tierProperties;
+            hasIngot = hasNugget = hasBlock = hasPlate = hasDustSeries = hasRod = hasBoltAndScrew = hasGearSeries = hasTools = false;
+        }
+
+        public Properties(String name) {
+            this.name = name;
+            formula = "";
+            color = 0;
             strength = 0;
             material = net.minecraft.world.level.material.Material.METAL;
             sound = SoundType.METAL;
             hasIngot = hasNugget = hasBlock = hasPlate = hasDustSeries = hasRod = hasBoltAndScrew = hasGearSeries = hasTools = false;
-        }
-
-        public static Properties of(String name) {
-            return new Properties(name);
         }
 
         public Properties formula(String formula) {
@@ -86,11 +98,6 @@ public class Material {
 
         public Properties color(int color) {
             this.color = color;
-            return this;
-        }
-
-        public Properties durability(int durability) {
-            this.durability = durability;
             return this;
         }
 
@@ -154,7 +161,7 @@ public class Material {
             return this;
         }
 
-        public Properties hasAll() {
+        public Properties hasAllMaterials() {
             this.hasIngot = true;
             this.hasNugget = true;
             this.hasBlock = true;
@@ -163,7 +170,6 @@ public class Material {
             this.hasRod = true;
             this.hasBoltAndScrew = true;
             this.hasGearSeries = true;
-            this.hasTools = true;
             return this;
         }
     }

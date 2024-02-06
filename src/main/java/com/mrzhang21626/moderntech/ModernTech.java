@@ -5,6 +5,7 @@ import com.mrzhang21626.moderntech.materials.Material;
 import com.mrzhang21626.moderntech.registries.RegistryBlocks;
 import com.mrzhang21626.moderntech.registries.RegistryItems;
 import com.mrzhang21626.moderntech.registries.RegistryMaterials;
+import com.mrzhang21626.moderntech.registries.RegistryTools;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -94,6 +95,7 @@ public class ModernTech {
         RegistryMaterials.init();
         RegistryBlocks.init();
         RegistryItems.init();
+        RegistryTools.init();
     }
 
     public static final class Utils {

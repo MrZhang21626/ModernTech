@@ -14,47 +14,47 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class BaseBlockItem extends BlockItem {
+public class SimpleBlockItem extends BlockItem {
     String tooltip = "";
     ChatFormatting chatFormatting = ChatFormatting.GRAY;
 
-    public BaseBlockItem(Block block, Properties properties) {
+    public SimpleBlockItem(Block block, Properties properties) {
         super(block, properties);
     }
 
-    public BaseBlockItem(Block block, Properties properties, CreativeModeTab tab) {
+    public SimpleBlockItem(Block block, Properties properties, CreativeModeTab tab) {
         this(block, properties.tab(tab));
     }
 
-    public BaseBlockItem(Block block, Properties properties, CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
+    public SimpleBlockItem(Block block, Properties properties, CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
         this(block, properties, tab);
         this.tooltip = tooltip;
         this.chatFormatting = chatFormatting;
     }
 
-    public BaseBlockItem(Block block, Properties properties, String tooltip, ChatFormatting chatFormatting) {
+    public SimpleBlockItem(Block block, Properties properties, String tooltip, ChatFormatting chatFormatting) {
         this(block, properties);
         this.tooltip = tooltip;
         this.chatFormatting = chatFormatting;
     }
 
-    public BaseBlockItem(Block block, Properties properties, CreativeModeTab tab, String tooltip) {
+    public SimpleBlockItem(Block block, Properties properties, CreativeModeTab tab, String tooltip) {
         this(block, properties, tab, tooltip, ChatFormatting.GRAY);
     }
 
-    public BaseBlockItem(Block block, CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
+    public SimpleBlockItem(Block block, CreativeModeTab tab, String tooltip, ChatFormatting chatFormatting) {
         this(block, new Properties(), tab, tooltip, chatFormatting);
     }
 
-    public BaseBlockItem(Block block, String tooltip, ChatFormatting chatFormatting) {
+    public SimpleBlockItem(Block block, String tooltip, ChatFormatting chatFormatting) {
         this(block, new Properties(), tooltip, chatFormatting);
     }
 
-    public BaseBlockItem(Block block, CreativeModeTab tab, String tooltip) {
+    public SimpleBlockItem(Block block, CreativeModeTab tab, String tooltip) {
         this(block, new Properties(), tab, tooltip);
     }
 
-    public BaseBlockItem(Block block, String tooltip) {
+    public SimpleBlockItem(Block block, String tooltip) {
         this(block, new Properties(), tooltip, ChatFormatting.GRAY);
     }
 

@@ -1,9 +1,8 @@
 package com.mrzhang21626.moderntech.registries;
 
 import com.mrzhang21626.moderntech.ModernTech;
-import com.mrzhang21626.moderntech.items.BaseBlockItem;
-import com.mrzhang21626.moderntech.items.BaseItem;
-import com.mrzhang21626.moderntech.items.tools.SimpleToolItem;
+import com.mrzhang21626.moderntech.items.SimpleBlockItem;
+import com.mrzhang21626.moderntech.items.SimpleItem;
 import com.mrzhang21626.moderntech.materials.Material;
 import com.mrzhang21626.moderntech.registries.registration.ItemRegistration;
 import net.minecraft.world.item.BlockItem;
@@ -52,8 +51,8 @@ public class RegistryItems {
                     case "iron" -> material.block.setBlockItem((BlockItem) Items.IRON_BLOCK);
                     case "copper" -> material.block.setBlockItem((BlockItem) Items.COPPER_BLOCK);
                     case "gold" -> material.block.setBlockItem((BlockItem) Items.GOLD_BLOCK);
-                    default ->
-                            material.block.setBlockItem(ITEMS.register(material.name + "_block", () -> new BaseBlockItem(material.block.getBlock(), ModernTech.MATERIALS_TAB, material.formula)));
+                    default -> material.block.setBlockItem(ITEMS.register(material.name + "_block",
+                            () -> new SimpleBlockItem(material.block.getBlock(), ModernTech.MATERIALS_TAB, material.formula)));
                 }
             }
             if (material.hasRod) {
@@ -67,14 +66,10 @@ public class RegistryItems {
                 material.ITEMS.put("gears", getMaterialItem(material.name, "gear", material.formula));
                 material.ITEMS.put("small_gears", getMaterialItem(material.name, "small_gear", material.formula));
             }
-            if (material.hasTools) {
-                material.TOOLS.put("hammers", new ItemRegistration(ITEMS.register(material.name + "_hammer", () -> new SimpleToolItem(material.durability, material.formula))));
-                material.TOOLS.put("files", new ItemRegistration(ITEMS.register(material.name + "_file", () -> new SimpleToolItem(material.durability, material.formula))));
-            }
         }
     }
 
     private static ItemRegistration getMaterialItem(String materialName, String type, String formula) {
-        return new ItemRegistration(ITEMS.register(materialName + "_" + type, () -> new BaseItem(ModernTech.MATERIALS_TAB, formula)));
+        return new ItemRegistration(ITEMS.register(materialName + "_" + type, () -> new SimpleItem(ModernTech.MATERIALS_TAB, formula)));
     }
 }

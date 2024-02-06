@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.datagen;
+package com.mrzhang21626.moderntech.datagen.model;
 
 import com.mrzhang21626.moderntech.ModernTech;
 import com.mrzhang21626.moderntech.materials.Material;
@@ -24,6 +24,7 @@ public class ItemModelGenerator extends ItemModelProvider {
         for (var material : Material.values()) {
             for (var type : material.ITEMS.keySet()) {
                 var item = material.ITEMS.get(type).get();
+                if (item.getRegistryName().getNamespace().equals("minecraft")) continue;
                 generatedItem(name(item), modLoc("item/material/" + ModernTech.Utils.getTextureName(type)));
             }
             if (material.hasBlock) {
@@ -37,6 +38,7 @@ public class ItemModelGenerator extends ItemModelProvider {
             }
             for (var type : material.TOOLS.keySet()) {
                 var item = material.TOOLS.get(type).get();
+                if (item.getRegistryName().getNamespace().equals("minecraft")) continue;
                 switch (type) {
                     case "hammers" -> withExistingParent(name(item), GENERATED)
                             .texture("layer0", modLoc("item/tools/hammer"))

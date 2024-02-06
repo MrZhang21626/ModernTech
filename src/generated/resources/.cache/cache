@@ -1,6 +1,6 @@
 a544d1f0d06ed45b9e15d7fd4548a0443d6cd737 assets/moderntech/blockstates/beryllium_block.json
 0143cf63106bb3b6e814075c4752fcf8535845e9 assets/moderntech/blockstates/boron_block.json
-f1b16b692ccc8f15aa6732a637a738eaf9ca1c27 assets/moderntech/lang/en_us.json
+2964540acc34f752f23d1547e2fdc3418cc639ab assets/moderntech/lang/en_us.json
 f6650b2ec8eb5603eb056a60ba17c7f456ce965f assets/moderntech/models/block/beryllium_block.json
 5e7c6918c3aba53c54e716a54efb2b2d656af147 assets/moderntech/models/block/boron_block.json
 24797b870cc0ebd94944dca89824774edd002cf2 assets/moderntech/models/item/beryllium_block.json
@@ -36,7 +36,6 @@ f50dc75e6aafb6f89def072c13ef2bc965b706d5 assets/moderntech/models/item/boron_tin
 28ff4dd6510fcf0fe8480705159aa4a8836b4703 assets/moderntech/models/item/copper_file.json
 1c7766e6e3f9f808d27692f56233d7179e111c15 assets/moderntech/models/item/copper_gear.json
 d98389e589ef8646ef06a3a03752b2d534fd986e assets/moderntech/models/item/copper_hammer.json
-6c0dfd01c1a7cdc824eb3a2e1ecd826a9c9012ef assets/moderntech/models/item/copper_ingot.json
 f3ea18b4d77492d55442cbc7e949bd66e8ff59b6 assets/moderntech/models/item/copper_nugget.json
 03b2f5324a3f9b35f9999b3184808141d363e902 assets/moderntech/models/item/copper_plate.json
 04dfc308de80be9404a9a8ed10cab99d82327fca assets/moderntech/models/item/copper_rod.json
@@ -49,8 +48,6 @@ f50dc75e6aafb6f89def072c13ef2bc965b706d5 assets/moderntech/models/item/copper_ti
 28ff4dd6510fcf0fe8480705159aa4a8836b4703 assets/moderntech/models/item/gold_file.json
 1c7766e6e3f9f808d27692f56233d7179e111c15 assets/moderntech/models/item/gold_gear.json
 d98389e589ef8646ef06a3a03752b2d534fd986e assets/moderntech/models/item/gold_hammer.json
-6c0dfd01c1a7cdc824eb3a2e1ecd826a9c9012ef assets/moderntech/models/item/gold_ingot.json
-f3ea18b4d77492d55442cbc7e949bd66e8ff59b6 assets/moderntech/models/item/gold_nugget.json
 03b2f5324a3f9b35f9999b3184808141d363e902 assets/moderntech/models/item/gold_plate.json
 04dfc308de80be9404a9a8ed10cab99d82327fca assets/moderntech/models/item/gold_rod.json
 e35359b6fa4ba53a80d9c971b384d7853d805bb6 assets/moderntech/models/item/gold_screw.json
@@ -62,8 +59,6 @@ f50dc75e6aafb6f89def072c13ef2bc965b706d5 assets/moderntech/models/item/gold_tiny
 28ff4dd6510fcf0fe8480705159aa4a8836b4703 assets/moderntech/models/item/iron_file.json
 1c7766e6e3f9f808d27692f56233d7179e111c15 assets/moderntech/models/item/iron_gear.json
 d98389e589ef8646ef06a3a03752b2d534fd986e assets/moderntech/models/item/iron_hammer.json
-6c0dfd01c1a7cdc824eb3a2e1ecd826a9c9012ef assets/moderntech/models/item/iron_ingot.json
-f3ea18b4d77492d55442cbc7e949bd66e8ff59b6 assets/moderntech/models/item/iron_nugget.json
 03b2f5324a3f9b35f9999b3184808141d363e902 assets/moderntech/models/item/iron_plate.json
 04dfc308de80be9404a9a8ed10cab99d82327fca assets/moderntech/models/item/iron_rod.json
 e35359b6fa4ba53a80d9c971b384d7853d805bb6 assets/moderntech/models/item/iron_screw.json
@@ -155,9 +150,6 @@ a524aa363a96bc3a1f3e02b9fa66e42d19806413 data/forge/tags/items/tools/hammers/ber
 47e7d263a3d6ccde13dfd248ae6421ccfe5d0ccd data/forge/tags/items/tools/hammers/copper.json
 f0d43996537a2528b3240136ad8917c33fd44e36 data/forge/tags/items/tools/hammers/gold.json
 42468f38a2a0dd049404b147f26760c157f02a49 data/forge/tags/items/tools/hammers/iron.json
-a7d6fbd7e26c882cf9636289e3664fb89f63b82f data/minecraft/loot_tables/blocks/copper_block.json
-a90928ae28499ae256c50db6e31044dced3fd803 data/minecraft/loot_tables/blocks/gold_block.json
-b474e9f596915dbcf8fccbefbb3cbe9daff84c5f data/minecraft/loot_tables/blocks/iron_block.json
 bb1f9ae9b94de9283c7d157211a52c2bb7b961a5 data/minecraft/tags/blocks/mineable/pickaxe.json
 37368f48086a9557e1f211f9c184827e0fb60b76 data/moderntech/advancements/recipes/materials_tab/crafting/materials/beryllium_dusts_from_small_dusts.json
 dfcba079237190182e695980d90eb79ab558c10d data/moderntech/advancements/recipes/materials_tab/crafting/materials/beryllium_dusts_from_tiny_dusts.json

@@ -1,4 +1,4 @@
-package com.mrzhang21626.moderntech.datagen;
+package com.mrzhang21626.moderntech.datagen.loot;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
@@ -36,9 +36,7 @@ public class LootTableGenerator extends LootTableProvider {
     }
 
     @Override
-    protected void validate(@NotNull Map<ResourceLocation, LootTable> map, @NotNull ValidationContext validationtracker) {
-
-    }
+    protected void validate(@NotNull Map<ResourceLocation, LootTable> map, @NotNull ValidationContext validationtracker) {}
 
     protected BlockLoot getBlockLootTable() {
         return new BlockLoots();
@@ -62,7 +60,8 @@ public class LootTableGenerator extends LootTableProvider {
             for (var material : Material.values()) {
                 if (material.hasBlock) {
                     var block = material.block.getBlock();
-                    dropSelfWithContents(block);
+                    if (block.getRegistryName().getNamespace().equals("minecraft")) continue;
+                    dropSelf(block);
                 }
             }
         }
